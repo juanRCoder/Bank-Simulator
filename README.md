@@ -2,4 +2,4 @@
 
 
 ## Forma de enviar los datos al back
-- await fetch("http://localhost:3005/enviarDatos"
+- await fetch("http://localhost:3006/enviarDatos")
