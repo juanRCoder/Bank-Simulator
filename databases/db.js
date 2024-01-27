@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 //Connect to MondoDB
-const url = "mongodb://127.0.0.1/BankDB";
+const url = "mongodb://127.0.0.1:27017/BankDB";
 
 async function connectDB() {
   try {
