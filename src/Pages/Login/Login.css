@@ -1,0 +1,48 @@
+.login{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    width: 50%;
+    box-shadow:1px 2px 3px 2px black;
+    margin-left: 20%;
+
+}
+
+.formulario h2 {
+    font-size: 32px;
+}
+
+.input-container input{
+    margin-top: 10px;
+    width: auto;
+    height: 25px;
+    border-radius: 5px;
+    
+}
+
+
+.btn{
+    display: flex;
+    
+}
+.btn-1{
+    margin-right: 20px;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-2{
+    cursor: pointer;
+    margin-left:20px ;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+}
+.contraseña{
+    display: flex;
+    
+    color: #000000;
+}
