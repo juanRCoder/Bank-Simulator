@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.footer{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%; 
+    background-color: #f1f1f1; 
+    padding: 10px; 
+    box-sizing: border-box; 
+}
+
+.lista{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.lista li{
+    list-style: none;
+}
