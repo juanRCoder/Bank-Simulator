@@ -2,10 +2,6 @@ import './Login.css'
 import { useNavigate } from 'react-router-dom'
 import React, { useState } from 'react';
 
-
-
-
-
 const Login = () => {
 
 const [nombreCompleto, setNombreCompleto] = useState("");
@@ -19,7 +15,7 @@ const handleChange = (event) => {
 
 const handleSubmit = async () => {
   try {
-    const response = await fetch("http://localhost:3006/sendUser", {
+    const response = await fetch("/sendUser", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(nombreCompleto),
@@ -28,7 +24,7 @@ const handleSubmit = async () => {
 
     if (response.ok) {
       const userId = await response.json();
-        navigate(`/dashboard/${userId}`); 
+        navigate(`/getDashboard/${userId}`); 
       setGoToDashboard(true);
     } else {
       console.error("Los datos no son correctos");
@@ -49,7 +45,7 @@ const handleSubmit = async () => {
           <input type="number" 
           required 
           id='dni' 
-          value={nombreCompleto.dni || ""}
+          value={nombreCompleto.dni }
           placeholder="Numero de Dni"
           onChange={handleChange}/>
           <label>DNI</label>
@@ -58,7 +54,7 @@ const handleSubmit = async () => {
           <input type="number"
            required 
            id="cardNumber"
-           value={nombreCompleto.cardNumber || ""}
+           value={nombreCompleto.cardNumber }
            onChange={handleChange}
            placeholder="Ingrese su numero de tarjeta"/>
           <label>Numero de Tarjeta</label>
@@ -67,7 +63,7 @@ const handleSubmit = async () => {
           <input type="password" 
           required
            id="key" 
-           value={nombreCompleto.key || ""}
+           value={nombreCompleto.key }
            onChange={handleChange}
            placeholder="Ingrese su clave de 6 digitos"/>
           <label>Clave de 6 digitos</label>
@@ -78,7 +74,7 @@ const handleSubmit = async () => {
           </p>
          </div>
          <div className='btn'>
-          <button className="btn-1"> INGRESAR</button>
+          <button className="btn-1" onClick={handleSubmit}> INGRESAR</button>
           <button className="btn-2"> AFILIATE</button>         
           
          </div>

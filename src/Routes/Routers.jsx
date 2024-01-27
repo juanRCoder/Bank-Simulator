@@ -15,13 +15,9 @@ const Routers = () => {
     <BrowserRouter>
     <Navbar/>
     <Routes>
-      
       <Route path="/" element={<Landing/>}/>
       <Route path="/login" element={<Login/>}/>
-      <Route path="/dashboard" element={<Dashboard/>}/>
-    </Routes>
-    <Routes>
-      
+      <Route path="/getDasboard/:id" element={<Dashboard/>}/>
     </Routes>
     <Footer></Footer> 
     </BrowserRouter>
