@@ -8,7 +8,7 @@ const userRouter = express.Router();
 userRouter.post("/sendUser", postUser);
 
 // Protector de la ruta getDasboard
-userRouter.use("/getDasboard/:id", UserAuthentication);
-userRouter.get("/getDasboard/:id", getDasboard);
+userRouter.use("/getDashboard/:id", UserAuthentication);
+userRouter.get("/getDashboard/:id", getDasboard);
 
 export default userRouter;
