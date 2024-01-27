@@ -6,17 +6,18 @@ const userSchema = new mongoose.Schema({
   dni: {
     type: Number,
     required: true,
-    unique: true
+    unique: true,
   },
-  numTarjeta: {
+  cardNumber: {
     type: Number,
-    unique: true
+    unique: true,
   },
   key: {
     type: Number,
     required: true,
-    unique: true
+    unique: true,
   },
+  amount: Number
 });
 
 const Users = mongoose.model("Users", userSchema, "users");

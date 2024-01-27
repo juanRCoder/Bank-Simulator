@@ -3,14 +3,14 @@ import Masters from "../../databases/schemas/masters.schema.js";
 
 export const postUser = async (req, res) => {
   try {
-    const { dni, numTarjeta, key } = req.body;
+    const { dni, cardNumber, key } = req.body;
     //verifica que los datos entrantes no sean nulos o undefined
-    if (!dni || !numTarjeta || !key) {
+    if (!dni || !cardNumber || !key) {
       return res.status(400).json({ error: "Datos de entrada incompletos" });
     }
 
     const master = await Masters.findOne({ dni, key });
-    const usuario = await Users.findOne({ dni, numTarjeta, key });
+    const usuario = await Users.findOne({ dni, cardNumber, key });
 
     //verifica si un usuario existe en la base de datos o no
     if (!usuario) {
@@ -47,8 +47,8 @@ export const getDasboard = async (req, res) => {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
 
-    //devolver el nombre del usuario al frontend.
-    res.status(200).json(findUser.name);
+    //devolver el nombre y el monto del usuario al frontend.
+    res.status(200).json({ name: findUser.name, amount: findUser.amount });
   } catch (e) {
     console.log(
       "Error: No se puedo contactar el id del usuario en la base de datos" +
