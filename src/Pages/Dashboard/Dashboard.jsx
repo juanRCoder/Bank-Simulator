@@ -24,7 +24,7 @@ const Dashboard = () => {
     };
 
     responseFetch();
-  }, [userId]);
+  }, [id]);
 
   return (
     <>

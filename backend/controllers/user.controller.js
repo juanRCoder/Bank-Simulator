@@ -36,10 +36,10 @@ export const postUser = async (req, res) => {
 export const getDashboard = async (req, res) => {
   try {
     // id del usuario en la ruta
-    const id = req.params.id;
+    const userId = req.params.id;
 
     // buscar al usuario por el id en la colección "users"
-    const findUser = await Users.findById(id);
+    const findUser = await Users.findById(userId);
 
     if (!findUser) {
       return res.status(404).json({ error: "Usuario no encontrado" });
@@ -48,10 +48,7 @@ export const getDashboard = async (req, res) => {
     // devolver el nombre y el monto del usuario al frontend.
     res.status(200).json({ name: findUser.name, amount: findUser.amount });
   } catch (e) {
-    console.log(
-      "Error en el controlador de Users: " +
-        e.message
-    );
+    console.log("Error en el controlador de Users: " + e.message);
     res.status(500).json({ e: "Error al procesar los datos del usuario" });
   }
 };
