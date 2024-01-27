@@ -1,5 +1,5 @@
 import express from "express";
-import { postUser, getDasboard } from "../controllers/user.controller.js";
+import { postUser, getDashboard  } from "../controllers/user.controller.js";
 import { UserAuthentication } from "../middlewares/user.middleware.js";
 
 const userRouter = express.Router();
@@ -9,7 +9,7 @@ userRouter.post("/sendUser", postUser);
 
 // Protector de la ruta getDasboard
 
-userRouter.use("/getUser/:id", UserAuthentication);
-userRouter.get("/getUser/:id", getDasboard);
+// userRouter.use("/getUser/:id", UserAuthentication);
+userRouter.get("/getUser/:id", getDashboard );
 
 export default userRouter;
