@@ -31,6 +31,7 @@ const Dashboard = () => {
       {" "}
       {datos && (
         <>
+        <p>hola</p>
           <p>Nombre: {datos.name}</p>
           <p>Monto: {datos.amount}</p>
         </>

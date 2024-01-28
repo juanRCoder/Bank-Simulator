@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import React, { useState, useEffect } from 'react'
+import logo from '../../images/logobank-removebg-preview.png'
 
 const Navbar = () => {
 
@@ -12,8 +13,8 @@ const Navbar = () => {
     <>
       <div className='Navbar'>
         <div className='Navlogo'>
-          <img src="" alt="BANK" />
-          <p>BANK</p>
+          <img src={logo} alt="BANK" />
+        
         </div>
 
         <ul className='nav-menu'>
