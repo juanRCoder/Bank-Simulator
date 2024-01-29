@@ -1,4 +1,4 @@
-import Movements from "../../databases/schemas/movements.schema";
+import Movements from "../../databases/schemas/movements.schema.js";
 import Users from "../../databases/schemas/user.schema.js";
 import History from "../../databases/schemas/history.schema.js";
 import moment from "moment-timezone";
