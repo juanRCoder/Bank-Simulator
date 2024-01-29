@@ -29,10 +29,11 @@ const Dashboard = () => {
 
   return (
     <>
+    <BodyDashboard/>
       {" "}
       {datos && (
         <>
-        <BodyDashboard/>
+        
           <p>Nombre: {datos.name}</p>
           <p>Monto: {datos.amount}</p>
         </>
