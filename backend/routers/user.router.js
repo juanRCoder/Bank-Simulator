@@ -1,6 +1,6 @@
 import express from "express";
-import { postUser, getDashboard, getUsersHistory } from "../controllers/user.controller.js";
-import { showAPI } from "../middlewares/user.middleware.js";
+import { postUser, getDashboard } from "../controllers/user.controller.js";
+import { showAPI, getUsersHistory } from "../middlewares/user.middleware.js";
 
 const userRouter = express.Router();
 

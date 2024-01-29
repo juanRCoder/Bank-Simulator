@@ -1,13 +1,5 @@
 import Users from "../../databases/schemas/user.schema.js";
 
-export const getUsersHistory = async (req, res) => {
-  try {
-    res.send({ hola: "Historial de usuarios" });
-  } catch (e) {
-    console.log("Error en el historial: " + e.message);
-  }
-};
-
 export const postUser = async (req, res) => {
   try {
     const { dni, cardNumber, key } = req.body;
@@ -24,7 +16,7 @@ export const postUser = async (req, res) => {
     }
 
     //devolver el id al frontend.
-    res.status(200).json(usuario._id);
+    res.status(200).json({ useId: usuario._id, isMaster: false });
   } catch (e) {
     console.error(
       "Error al intentar buscar al usuario en la base de datos" + e.message

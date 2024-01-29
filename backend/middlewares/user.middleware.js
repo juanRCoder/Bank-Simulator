@@ -16,3 +16,11 @@ export const showAPI = async (req, res, next) => {
     res.status(500).json({ message: e.message });
   }
 };
+
+export const getUsersHistory = async (req, res) => {
+  try {
+    res.json({ historial: "Historial de usuarios" });
+  } catch (e) {
+    console.log("Error en el historial: " + e.message);
+  }
+};
