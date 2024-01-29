@@ -4,24 +4,31 @@ const BodyDashboard = () => {
   return (
     <>
     <div className='dashboard'>
+      
         <div className='container'>
+        <h1 className='title-1'>¿Que Vamos Hacer Hoy?</h1>
             <div className='funcionalidades'>
-                <h1>¿Que Vamos Hacer Hoy?</h1>
-                <ul className='grupo-superior'>
-                  <li><button>Deposito</button></li>
+                <div>
+                <ul className='lista-funcionalidades'>
                   <li><button>Retiro</button></li>
                   <li><button>Transacciones</button></li>
                 </ul>
-                <ul className='grupo-inferior'>
-                  <li><button>Mis Movimientos</button></li>
-                  <li><button>Estado de Cuenta</button></li>
+                </div>
+                <ul className='lista-funcionalidades'>
+                <li><button></button></li>
+                <li><button></button></li>
+
                 </ul>
+                
             </div>
-            <div>
-                <p>mis productos  </p>
-            </div>
-            <div>cuentas de ahorro </div>
+           
         </div>
+        <div className='container-2'>
+                <h1>mis productos  </h1>
+                <h3>Cuenta Ahorro      S/.</h3>
+                <p></p>
+            </div>
+            
     </div>
     </>
   )

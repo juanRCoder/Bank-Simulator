@@ -2,7 +2,7 @@
 .carrusel{
   margin-top: 30px;
 }
-h1{
+.title-2>h1{
   display: flex;
   justify-content: center;
   margin-top: 40px;

@@ -19,6 +19,6 @@ body{
     justify-content: space-around;
     
 }
-.lista li{
+.lista>li{
     list-style: none;
 }
