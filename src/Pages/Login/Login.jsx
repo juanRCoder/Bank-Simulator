@@ -32,12 +32,15 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-
+        //RUTA PARA MASTERS
         if (data.isMaster) {
           window.location = "/UsersHystorial";
+
+          //RUTAL PARA USUARIOS
+        } else {
+          navigate(`/getDashboard/${data.useId}`);
+          console.log(`Datos enviados: id ${data.useId}`);
         }
-        navigate(`/getDashboard/${data}`);
-        console.log(`Datos enviados: id ${data}`);
       } else {
         console.error("Error en la solicitud:", response.statusText);
       }
