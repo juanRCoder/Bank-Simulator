@@ -1,5 +1,12 @@
 import Users from "../../databases/schemas/user.schema.js";
-import Masters from "../../databases/schemas/masters.schema.js";
+
+export const getUsersHistory = async (req, res) => {
+  try {
+    res.send({ hola: "Historial de usuarios" });
+  } catch (e) {
+    console.log("Error en el historial: " + e.message);
+  }
+};
 
 export const postUser = async (req, res) => {
   try {
@@ -9,18 +16,11 @@ export const postUser = async (req, res) => {
       return res.status(400).json({ error: "Datos de entrada incompletos" });
     }
 
-    const master = await Masters.findOne({ dni, key });
     const usuario = await Users.findOne({ dni, cardNumber, key });
 
     //verifica si un usuario existe en la base de datos o no
     if (!usuario) {
-      if (master && master.dni === dni && master.key === key) {
-        // Redirigir solo si es un "master" válido
-        return res.redirect("/transactionHistory");
-      } else {
-        // Respuesta JSON para "Master o usuario no válido/a"
-        return res.status(404).json({ error: "Master o usuario no válido/a" });
-      }
+      return res.status(404).json({ error: "Master o usuario no válido/a" });
     }
 
     //devolver el id al frontend.

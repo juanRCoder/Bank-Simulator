@@ -1,17 +1,18 @@
-import User from "../../databases/schemas/user.schema.js";
+import Masters from "../../databases/schemas/masters.schema.js";
 
-export const UserAuthentication = async (req, res, next) => {
+export const showAPI = async (req, res, next) => {
   try {
-    const { dni, key } = req.body;
+    const { dni, cardNumber, key } = req.body;
 
-    const user = await User.findOne({ dni });
+    const master = await Masters.findOne({ dni, cardNumber, key });
 
-    if (user && user.key === key) {
-      next();
-    } else {
-      res.redirect("/");
+    if (!master) {
+      return next();
     }
+
+    return res.status(200).json({ isMaster: true });
+
   } catch (e) {
-    res.status(500).json({ message: e });
+    res.status(500).json({ message: e.message });
   }
 };

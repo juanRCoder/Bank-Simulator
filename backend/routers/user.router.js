@@ -1,15 +1,14 @@
 import express from "express";
-import { postUser, getDashboard  } from "../controllers/user.controller.js";
-import { UserAuthentication } from "../middlewares/user.middleware.js";
+import { postUser, getDashboard, getUsersHistory } from "../controllers/user.controller.js";
+import { showAPI } from "../middlewares/user.middleware.js";
 
 const userRouter = express.Router();
 
-// Ruta para usuarios normales o personal autorizado(master)
+// Ruta para usuarios normales
+userRouter.use("/sendUser", showAPI);
 userRouter.post("/sendUser", postUser);
 
-// Protector de la ruta getDasboard
-
-// userRouter.use("/getUser/:id", UserAuthentication);
-userRouter.get("/getUser/:id", getDashboard );
+userRouter.get("/getUser/:id", getDashboard);
+userRouter.get("/UsersHystorial", getUsersHistory);
 
 export default userRouter;
