@@ -1,0 +1,37 @@
+.dashboard{
+    display: flex;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+
+}
+.funcionalidades li{
+    list-style: none;
+}
+.funcionalidades{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 400px;
+    height: 10  0px;
+    margin-left: 240px;
+    margin-top: 20px;
+    gap: 30px;
+}
+.funcionalidades li button{
+    width: 120px;
+    height: 60px;
+    border-radius: 15px;
+}
+.funcionalidades .grupo-superior {
+    margin-bottom: 10px; 
+}
+
+.funcionalidades li button {
+    width: 120px;
+    height: 60px;
+    border-radius: 15px;
+    margin-right: 10px; 
+}
