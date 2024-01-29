@@ -35,11 +35,9 @@ const Login = () => {
 
         if (data.isMaster) {
           window.location = "/UsersHystorial";
-    
-        } else {
-          navigate(`/getDashboard/${data}`);
-          console.log(`Datos enviados: id ${data}`);
         }
+        navigate(`/getDashboard/${data}`);
+        console.log(`Datos enviados: id ${data}`);
       } else {
         console.error("Error en la solicitud:", response.statusText);
       }
