@@ -16,11 +16,12 @@ const Login = () => {
     if (
       !nombreCompleto.dni ||
       !nombreCompleto.cardNumber ||
-      !nombreCompleto.key
+      !nombreCompleto.keySix
     ) {
       console.error(
         "Error: Datos incompletos. Por favor, complete todos los campos."
       );
+      return; // Agregué un return para salir de la función si los datos están incompletos
     }
 
     try {
@@ -32,14 +33,14 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-        //RUTA PARA MASTERS
+        // RUTA PARA MASTERS
         if (data.isMaster) {
           window.location = "/UsersHystorial";
 
-          //RUTAL PARA USUARIOS
+          // RUTA PARA USUARIOS
         } else {
-          navigate(`/getDashboard/${data.useId}`);
-          console.log(`Datos enviados: id ${data.useId}`);
+          navigate(`/getDashboard/${data.userId}`);
+          console.log(`Datos enviados: id ${data.userId}`);
         }
       } else {
         console.error("Error en la solicitud:", response.statusText);
@@ -88,13 +89,13 @@ const Login = () => {
               <input
                 type="password"
                 required
-                id="key"
-                name="key"
-                value={nombreCompleto.key}
+                id="keySix"
+                name="keySix"
+                value={nombreCompleto.keySix}
                 onChange={handleChange}
                 placeholder="Ingrese su clave de 6 digitos"
               />
-              <label htmlFor="key">Clave de 6 digitos</label>
+              <label htmlFor="keySix">Clave de 6 digitos</label>
             </div>
             <div className="contraseña">
               <p>
