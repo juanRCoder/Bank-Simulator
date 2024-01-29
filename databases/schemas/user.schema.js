@@ -12,12 +12,20 @@ const userSchema = new mongoose.Schema({
     type: Number,
     unique: true,
   },
-  key: {
+  amount: Number,
+  accountNumber: {
+    type: Number,
+    unique: true,
+  },
+  keyFour: {
+    type: Number,
+    unique: true,
+  },
+  keySix: {
     type: Number,
     required: true,
     unique: true,
   },
-  amount: Number
 });
 
 const Users = mongoose.model("Users", userSchema, "users");

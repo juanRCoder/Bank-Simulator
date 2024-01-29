@@ -2,21 +2,21 @@ import Users from "../../databases/schemas/user.schema.js";
 
 export const postUser = async (req, res) => {
   try {
-    const { dni, cardNumber, key } = req.body;
+    const { dni, cardNumber, keySix } = req.body;
     //verifica que los datos entrantes no sean nulos o undefined
-    if (!dni || !cardNumber || !key) {
+    if (!dni || !cardNumber || !keySix) {
       return res.status(400).json({ error: "Datos de entrada incompletos" });
     }
 
-    const usuario = await Users.findOne({ dni, cardNumber, key });
+    const usuario = await Users.findOne({ dni, cardNumber, keySix });
 
     //verifica si un usuario existe en la base de datos o no
     if (!usuario) {
       return res.status(404).json({ error: "Master o usuario no válido/a" });
     }
 
-    //devolver el id al frontend.
-    res.status(200).json({ useId: usuario._id, isMaster: false });
+    //devolver el id al frontend y tambien decirle que no es master.
+    res.status(200).json({ userId: usuario._id, isMaster: false });
   } catch (e) {
     console.error(
       "Error al intentar buscar al usuario en la base de datos" + e.message
