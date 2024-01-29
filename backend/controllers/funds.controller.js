@@ -60,6 +60,7 @@ export const postDeposit = async (req, res) => {
 
       res.status(201).json({
         name: findUser.name,
+        lastName: findUser.lastName,
         deposit: newMovement.amount,
         date: newMovement.timestamp,
       });
