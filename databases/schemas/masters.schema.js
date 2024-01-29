@@ -12,7 +12,7 @@ const masterSchema = new mongoose.Schema({
     type: Number,
     unique: true,
   },
-  key: {
+  keySix: {
     type: Number,
     required: true,
     unique: true,
