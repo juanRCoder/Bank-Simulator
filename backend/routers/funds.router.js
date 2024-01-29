@@ -4,6 +4,6 @@ import { postDeposit } from "../controllers/funds.controller.js";
 const fundsRouters = express.Router();
 
 // Ruta para enviar el deposito
-fundsRouters.use("/sendDeposit", postDeposit);
+fundsRouters.post("/sendDeposit", postDeposit);
 
 export default fundsRouters;
