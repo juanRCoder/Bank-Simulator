@@ -16,7 +16,7 @@ const Landing = () => {
     <div className='imagen'>
     <img src={campaña} alt="" />
       </div>
-      <div>
+      <div className='title-2'>
         <h1>TENEMOS PRODUCTOS PARA TI</h1>
         <ul className='lista-productos'>
           <li><img src={cardd} alt="" /><p>Obten una Tarjeta de <br />Credito</p></li>
