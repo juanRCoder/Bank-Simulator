@@ -31,9 +31,15 @@ const Login = () => {
       });
 
       if (response.ok) {
-        const userId = await response.json();
-        navigate(`/getDashboard/${userId}`);
-        console.log(`Datos enviados: id ${userId}`);
+        const data = await response.json();
+
+        if (data.isMaster) {
+          window.location = "/UsersHystorial";
+    
+        } else {
+          navigate(`/getDashboard/${data}`);
+          console.log(`Datos enviados: id ${data}`);
+        }
       } else {
         console.error("Error en la solicitud:", response.statusText);
       }
