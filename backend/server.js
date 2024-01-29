@@ -2,9 +2,8 @@ import express from "express";
 import { fileURLToPath } from "url";
 import connectDB from "../databases/db.js";
 import userRouter from "./routers/user.router.js";
+import fundsRouters from "./routers/funds.router.js";
 import path from "path";
-
-
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +20,7 @@ app.use(express.static(path.resolve(__dirname, "../dist")));
 
 //rutas
 app.use(userRouter);
+app.use(fundsRouters);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../dist/index.html"));
