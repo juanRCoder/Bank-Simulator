@@ -9,6 +9,7 @@ userRouter.use("/sendUser", showAPI);
 userRouter.post("/sendUser", postUser);
 
 userRouter.get("/getUser/:id", getDashboard);
+// API Historial
 userRouter.get("/UsersHystorial", getUsersHistory);
 
 export default userRouter;
