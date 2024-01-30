@@ -1,4 +1,5 @@
 import Masters from "../../databases/schemas/masters.schema.js";
+import History from "../../databases/schemas/history.schema.js";
 
 export const showAPI = async (req, res, next) => {
   try {
@@ -21,9 +22,8 @@ export const showAPI = async (req, res, next) => {
 export const getUsersHistory = async (req, res) => {
   try {
     //enviar toda la coleccion.
-    // const allMasters = await Masters.find();
-    // res.json(allMasters);
-    res.json({ hisorial: "usuarios" });
+    const allMasters = await History.find();
+    res.json(allMasters);
   } catch (e) {
     console.log("Error en el historial: " + e.message);
   }
