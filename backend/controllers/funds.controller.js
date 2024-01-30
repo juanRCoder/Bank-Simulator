@@ -140,5 +140,10 @@ export const postRetiro = async (req, res) => {
     } finally {
       session.endSession();
     }
-  } catch (e) {}
+  } catch (e) {
+    console.error("Error al realizar el retiro:", e.message);
+    res
+      .status(500)
+      .json({ error: "Error al procesar la solicitud de retiro" });
+  }
 };
