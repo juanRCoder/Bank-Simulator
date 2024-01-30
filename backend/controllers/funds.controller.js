@@ -131,7 +131,7 @@ export const postRetiro = async (req, res) => {
       res.status(201).json({
         name: findUser.name,
         lastName: findUser.lastName,
-        deposit: newMovement.amount,
+        withdrawal: newMovement.amount,
         date: newMovement.timestamp,
       });
     } catch (error) {
