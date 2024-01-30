@@ -88,9 +88,9 @@ export const postDeposit = async (req, res) => {
 
 export const postRetiro = async (req, res) => {
   try {
-    const { withdrawal, keyFour } = req.body;
+    const { dni, cardNumber, keyFour, withdrawal } = req.body;
 
-    const findUser = await Users.findOne({ keyFour });
+    const findUser = await Users.findOne({ dni, cardNumber, keyFour });
     if (!findUser) {
       return res.status(404).json({ error: "Usuario no encontrado" });
 
@@ -110,11 +110,9 @@ export const postRetiro = async (req, res) => {
       findUser.amount -= withdrawal;
       await findUser.save();
 
-      
       const newMovement = createNewMovement(withdrawal);
       await newMovement.save();
 
-      
       const newHistory = createNewHistory(findUser);
       await newHistory.save();
 
@@ -129,6 +127,8 @@ export const postRetiro = async (req, res) => {
 
       //enviar al frontend los datos necesarios para verificar el retiro.
       res.status(201).json({
+        name: findUser.name,
+        lastName: findUser.lastName,
         withdrawal: newMovement.amount,
         date: newMovement.timestamp,
       });
@@ -140,8 +140,6 @@ export const postRetiro = async (req, res) => {
     }
   } catch (e) {
     console.error("Error al realizar el retiro:", e.message);
-    res
-      .status(500)
-      .json({ error: "Error al procesar la solicitud de retiro" });
+    res.status(500).json({ error: "Error al procesar la solicitud de retiro" });
   }
 };
