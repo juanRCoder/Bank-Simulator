@@ -10,6 +10,7 @@ const historySchema = new mongoose.Schema(
       type: Date,
       default: () => moment.tz("America/Lima").format(),
     },
+    for: String,
   },
   { strict: false, versionKey: false }
 );

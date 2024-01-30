@@ -3,8 +3,9 @@ import Users from "../../databases/schemas/user.schema.js";
 import History from "../../databases/schemas/history.schema.js";
 import moment from "moment-timezone";
 
-const createNewMovement = (quantity) => {
+const createNewMovement = (quantity, user) => {
   return new Movements({
+    id_user: user._id,
     name: "Bank",
     lastName: "Simulator",
     timestamp: moment().tz("America/Lima").format(),
@@ -14,10 +15,11 @@ const createNewMovement = (quantity) => {
 
 const createNewHistory = (user) => {
   return new History({
-    name: user.name,
-    lastName: user.lastName,
+    name: "Bank",
+    lastName: "Simulator",
     cardNumber: user.cardNumber,
     timestamp: moment().tz("America/Lima").format(),
+    for: `${user.name} ${user.lastName}`,
   });
 };
 
@@ -46,7 +48,7 @@ export const postDeposit = async (req, res) => {
       await findUser.save();
 
       //creando un nuevo movimiento
-      const newMovement = createNewMovement(deposit);
+      const newMovement = createNewMovement(deposit, findUser);
       await newMovement.save();
 
       //creando una nuevo registro(historial)
@@ -83,9 +85,6 @@ export const postDeposit = async (req, res) => {
   }
 };
 
-
-
-
 export const postRetiro = async (req, res) => {
   try {
     const { dni, cardNumber, keyFour, withdrawal } = req.body;
@@ -110,7 +109,7 @@ export const postRetiro = async (req, res) => {
       findUser.amount -= withdrawal;
       await findUser.save();
 
-      const newMovement = createNewMovement(withdrawal);
+      const newMovement = createNewMovement(withdrawal, findUser);
       await newMovement.save();
 
       const newHistory = createNewHistory(findUser);

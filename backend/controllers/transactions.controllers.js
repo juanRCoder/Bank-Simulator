@@ -5,6 +5,7 @@ import moment from "moment-timezone";
 
 const createNewMovement = (quantity, user) => {
   return new Movements({
+    id_user: user._id,
     name: user.name,
     lastName: user.lastName,
     timestamp: moment().tz("America/Lima").format(),
@@ -30,6 +31,7 @@ export const postDepositUser = async (req, res) => {
       return res.status(400).json({ error: "Datos de entrada incompletos" });
     }
 
+    //Usuario que recibira el deposito
     const findUser = await Users.findOne({ accountNumber, dni, token });
     if (!findUser) {
       return res
@@ -37,6 +39,7 @@ export const postDepositUser = async (req, res) => {
         .json({ error: "Usuario para depositar no encontrado" });
     }
 
+    //Usuario que envia el deposito
     const imUser = await Users.findById({ idUser });
     if (!imUser) {
       return res.status(404).json({ error: "Usuario mismo no encontrado" });

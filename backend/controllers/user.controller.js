@@ -44,3 +44,8 @@ export const getDashboard = async (req, res) => {
     res.status(500).json({ e: "Error al procesar los datos del usuario" });
   }
 };
+
+export const getMovementsForUser = async (req, res) => {
+  try {
+  } catch (e) {}
+};
