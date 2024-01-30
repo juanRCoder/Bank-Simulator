@@ -37,7 +37,7 @@ const Retiro = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data.withdrawal, data.keyFour);
+        g
       } else {
         console.error("Error en la solicitud:", response.statusText);
       }
