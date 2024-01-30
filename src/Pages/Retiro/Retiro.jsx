@@ -3,14 +3,14 @@ import "./Retiro.css";
 import { useState } from "react";
 
 const Retiro = () => {
-  const [withdrawal, setWithdrawal] = useState("");
+  const [withdrawal, setWithdrawal] = useState(0);
   const [keyFour, setKeyFour] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     switch (name) {
       case "withdrawal":
-        setWithdrawal(value);
+        setWithdrawal(parseInt(value));
         console.log("Valor de retiro:", value);
         break;
       case "keyFour":
@@ -37,7 +37,7 @@ const Retiro = () => {
 
       if (response.ok) {
         const data = await response.json();
-        g
+        console.log(data.withdrawal, data.date);
       } else {
         console.error("Error en la solicitud:", response.statusText);
       }
