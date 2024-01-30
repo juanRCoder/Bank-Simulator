@@ -71,3 +71,9 @@
     cursor: pointer;
   }
   
+  .btn-regresar{
+    display: flex;
+    position: fixed;
+    right: 10px;
+    top: 20px;
+  }
