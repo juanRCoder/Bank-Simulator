@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const Deposito = () => {
   const [accountNumber, setAccountNumber] = useState("");
-  const [deposit, setDeposit] = useState("");
+  const [deposit, setDeposit] = useState(0);
   const [dni, setDni] = useState("");
 
   const handleChange = (event) => {
@@ -13,7 +13,7 @@ const Deposito = () => {
         setAccountNumber(value);
         break;
       case "deposit":
-        setDeposit(value);
+        setDeposit(parseInt(value));
         console.log("Valor de deposit:", value);
         break;
       case "dni":

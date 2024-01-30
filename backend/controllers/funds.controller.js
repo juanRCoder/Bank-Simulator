@@ -127,10 +127,8 @@ export const postRetiro = async (req, res) => {
       //aplicar todo los cambios
       await session.commitTransaction();
 
-      //enviar al frontend los datos necesarios para verificar el deposito.
+      //enviar al frontend los datos necesarios para verificar el retiro.
       res.status(201).json({
-        name: findUser.name,
-        lastName: findUser.lastName,
         withdrawal: newMovement.amount,
         date: newMovement.timestamp,
       });
