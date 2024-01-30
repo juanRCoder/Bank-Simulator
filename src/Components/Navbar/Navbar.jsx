@@ -21,9 +21,9 @@ const Navbar = () => {
           <li onClick={() => { setMenu("Home") }}><Link style=
           {{ textDecoration: 'none' }} to="/">Home</Link>  {menu === "Home" ?   <hr /> : <></>}</li>
           <li onClick={() => { setMenu("info") }}><Link  style=
-          {{ textDecoration: 'none' }} to="/Deposito">Deposito</Link> {menu === "Deposito" ? <hr /> : <></>}</li>
+          {{ textDecoration: 'none' }} to="/Deposito">Depositar  Dinero</Link> {menu === "Deposito" ? <hr /> : <></>}</li>
           <li onClick={() => { setMenu("GetAcard") }}><Link style=
-          {{ textDecoration: 'none' }} to="/GetAcard">Get a card</Link>{menu === "GetAcard" ? <hr /> : <></>}</li>
+          {{ textDecoration: 'none' }} to="/Retiro">Retirar Dinero</Link>{menu === "GetAcard" ? <hr /> : <></>}</li>
          
         </ul>
         <div className='nav-login-car'>

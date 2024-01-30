@@ -9,12 +9,7 @@ const BodyDashboard = () => {
           <div className="funcionalidades">
             <h1>¿Que Vamos Hacer Hoy?</h1>
             <ul className="grupo-superior">
-              <li>
-                <button>Deposito</button>
-              </li>
-              <li>
-                <button><Link to="/Retiro">Retiro</Link></button>
-              </li>
+              
               <li>
                 <button>Transacciones</button>
               </li>

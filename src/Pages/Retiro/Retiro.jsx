@@ -1,11 +1,15 @@
 import React from "react";
 import "./Retiro.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 
 const Retiro = () => {
   const [withdrawal, setWithdrawal] = useState(0);
   const [keyFour, setKeyFour] = useState("");
+  const [cardNumber, setCardNumber] = useState("")
+  const [dni, setDni] = useState("")
+  const [estadoRetiro, setEstadoRetiro] = useState(null);
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,12 +21,18 @@ const Retiro = () => {
       case "keyFour":
         setKeyFour(value);
         break;
+      case "dni":
+        setDni(value);
+        break;
+      case "cardNumber":
+        setCardNumber(value);
+        break;
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!withdrawal || !keyFour) {
+    if (!withdrawal || !keyFour|| !dni || !cardNumber) {
       console.error(
         "Error: Datos incompletos. Por favor, complete todos los campos."
       );
@@ -33,14 +43,22 @@ const Retiro = () => {
       const response = await fetch("/sendRetiro", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ withdrawal, keyFour }),
+        body: JSON.stringify({ withdrawal, keyFour, dni, cardNumber }),
       });
 
       if (response.ok) {
         const data = await response.json();
         console.log(data.withdrawal, data.date);
+        //setEstadoRetiro("exitoso"); //mensaje exitoso
+        //setTimeout(() => {
+        //  setEstadoRetiro(null);
+        //}, 4000); //duracion 4 segundos
       } else {
         console.error("Error en la solicitud:", response.statusText);
+       // setEstadoRetiro("fallido"); //mensaje de error 
+       // setTimeout(() => {
+       //  setEstadoRetiro(null);
+      //  }, 4000); //duracion 4 segundos
       }
     } catch (error) {
       console.error("Error al procesar la solicitud:", error);
@@ -53,7 +71,33 @@ const Retiro = () => {
         <div className="title">
           Welcome,
           <br />
-          <span>sign up to continue</span>
+          <span>Retira Dinero </span>
+        </div>
+        <div>
+          <label htmlFor="dni">Introducir Dni</label>
+          <input
+            type="dni"
+            placeholder="Introduzca su numero de DNI"
+            name="dni"
+            id="dni"
+            required
+            value={dni}
+            onChange={handleChange}
+            className="input"
+          />
+        </div>
+        <div>
+          <label htmlFor="cardNumber">Introduzca su Numero de Tarjeta</label>
+          <input
+            type="cardNumber"
+            placeholder="Introducir Contraseña 4 digitos"
+            name="cardNumber"
+            id="cardNumber"
+            required
+            value={cardNumber}
+            onChange={handleChange}
+            className="input"
+          />
         </div>
         <div>
           <label htmlFor="withdrawal">Seleccione la Cantidad de Retiro</label>
@@ -87,9 +131,7 @@ const Retiro = () => {
         </div>
         <button className="button-confirm">Retirar →</button>
       </form>
-      <div className="btn-regresar">
-        <Link to="/getDashboard/:id"> REGRESAR</Link>
-        </div>
+      
     </>
   );
 };
