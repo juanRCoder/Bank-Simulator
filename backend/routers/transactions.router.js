@@ -6,4 +6,4 @@ const transactionRouter = express.Router();
 // Ruta para realizar transacción a otro usuario
 transactionRouter.post("/sendDepositUser/:idUser", postDepositUser);
 
-export default userRouter;
+export default transactionRouter;
