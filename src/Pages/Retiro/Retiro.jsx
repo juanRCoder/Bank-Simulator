@@ -1,6 +1,7 @@
 import React from "react";
 import "./Retiro.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Retiro = () => {
   const [withdrawal, setWithdrawal] = useState(0);
@@ -48,7 +49,7 @@ const Retiro = () => {
 
   return (
     <>
-      <form className="form" action="/sendRetiro" onSubmit={handleSubmit}>
+           <form className="form" action="/sendRetiro" onSubmit={handleSubmit}>
         <div className="title">
           Welcome,
           <br />
@@ -86,6 +87,9 @@ const Retiro = () => {
         </div>
         <button className="button-confirm">Retirar →</button>
       </form>
+      <div className="btn-regresar">
+        <Link to="/getDashboard/:id"> REGRESAR</Link>
+        </div>
     </>
   );
 };
