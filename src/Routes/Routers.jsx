@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import Footer from "../Components/Footer/Footer";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Deposito from "../Pages/Deposito/Deposito";
+import Retiro from "../Pages/Retiro/Retiro";
 
 const Routers = () => {
   return (
@@ -18,6 +19,7 @@ const Routers = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/getDashboard/:id" element={<Dashboard />} />
           <Route path="/Deposito" element={<Deposito/>}/>
+          <Route path="/Retiro" element={<Retiro/>}/>
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

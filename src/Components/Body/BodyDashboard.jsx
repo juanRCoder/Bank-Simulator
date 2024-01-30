@@ -1,5 +1,6 @@
 import React from "react";
 import "./BodyDashboard.css";
+import { Link } from 'react-router-dom'
 const BodyDashboard = () => {
   return (
     <>
@@ -12,7 +13,7 @@ const BodyDashboard = () => {
                 <button>Deposito</button>
               </li>
               <li>
-                <button>Retiro</button>
+                <button><Link to="/Retiro">Retiro</Link></button>
               </li>
               <li>
                 <button>Transacciones</button>
