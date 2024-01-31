@@ -44,7 +44,7 @@ Asegúrate de tener las siguientes tecnologías y dependencias antes de ejecutar
 ## Diagrama de flujo
 
 <div align="center">
-  <img src="./src/assets/DatabaseDesign.png" alt="DatabaseDesign" height="400" >
+  <img src="./src/images/diagramProject.png" alt="DatabaseDesign" height="400" >
 </div>
 
 
