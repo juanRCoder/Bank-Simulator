@@ -49,22 +49,22 @@ const Retiro = () => {
       if (response.ok) {
         const data = await response.json();
         console.log(data.withdrawal, data.date);
-        //setEstadoRetiro("exitoso"); //mensaje exitoso
-        //setTimeout(() => {
-        //  setEstadoRetiro(null);
-        //}, 4000); //duracion 4 segundos
+          setEstadoRetiro("exitoso"); //mensaje exitoso
+          setTimeout(() => {
+          setEstadoRetiro(null);
+        }, 4000); //duracion 4 segundos
       } else {
         console.error("Error en la solicitud:", response.statusText);
-       // setEstadoRetiro("fallido"); //mensaje de error 
-       // setTimeout(() => {
-       //  setEstadoRetiro(null);
-      //  }, 4000); //duracion 4 segundos
+        setEstadoRetiro("fallido"); //mensaje de error 
+        setTimeout(() => {
+         setEstadoRetiro(null);
+        }, 4000); //duracion 4 segundos
       }
     } catch (error) {
       console.error("Error al procesar la solicitud:", error);
     }
   };
-
+  console.log("Estado de retiro:", estadoRetiro);
   return (
     <>
            <form className="form" action="/sendRetiro" onSubmit={handleSubmit}>

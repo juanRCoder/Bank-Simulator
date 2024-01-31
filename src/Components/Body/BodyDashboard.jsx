@@ -11,7 +11,7 @@ const BodyDashboard = () => {
             <ul className="grupo-superior">
               
               <li>
-                <button>Transacciones</button>
+                <Link to="/Transactions/:id"><button>TRANSACTION</button></Link>
               </li>
             </ul>
             <ul className="grupo-inferior">
