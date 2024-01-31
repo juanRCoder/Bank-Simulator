@@ -1,4 +1,5 @@
 import Users from "../../databases/schemas/user.schema.js";
+import Movements from "../../databases/schemas/movements.schema.js";
 
 export const postUser = async (req, res) => {
   try {
@@ -43,9 +44,4 @@ export const getDashboard = async (req, res) => {
     console.log("Error en el controlador de Users: " + e.message);
     res.status(500).json({ e: "Error al procesar los datos del usuario" });
   }
-};
-
-export const getMovementsForUser = async (req, res) => {
-  try {
-  } catch (e) {}
 };

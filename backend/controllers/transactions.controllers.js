@@ -25,15 +25,15 @@ const createNewHistory = (user, imUser) => {
 
 export const postDepositUser = async (req, res) => {
   try {
-    const { accountNumber, cantDeposit, dni, token } = req.body;
-    const { idUser } = req.params.id;
+    const { token, accountNumber, cantDeposit } = req.body;
+    const idUser = req.params.id;
 
-    if (!accountNumber || !cantDeposit || !dni || !token) {
+    if (!token || !accountNumber || !cantDeposit) {
       return res.status(400).json({ error: "Datos de entrada incompletos" });
     }
 
     //Usuario que recibira el deposito
-    const findUser = await Users.findOne({ accountNumber, dni, token });
+    const findUser = await Users.findOne({ accountNumber });
     if (!findUser) {
       return res
         .status(404)
@@ -41,7 +41,7 @@ export const postDepositUser = async (req, res) => {
     }
 
     //Usuario que envia el deposito
-    const imUser = await Users.findById({ idUser });
+    const imUser = await Users.findById({ idUser, token });
     if (!imUser) {
       return res.status(404).json({ error: "Usuario mismo no encontrado" });
     }
@@ -85,5 +85,8 @@ export const postDepositUser = async (req, res) => {
     } finally {
       session.endSession();
     }
-  } catch (e) {}
+  } catch (e) {
+    console.log("Error en el controlador de Transaccion: " + e.message);
+    res.status(500).json({ e: "Error al procesar los datos del Transaccion" });
+  }
 };

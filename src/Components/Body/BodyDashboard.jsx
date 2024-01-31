@@ -1,7 +1,8 @@
 import React from "react";
 import "./BodyDashboard.css";
-import { Link } from 'react-router-dom'
+import { Link, useParams} from 'react-router-dom'
 const BodyDashboard = () => {
+  const { id } = useParams();
   return (
     <>
       <div className="dashboard">
@@ -9,9 +10,8 @@ const BodyDashboard = () => {
           <div className="funcionalidades">
             <h1>¿Que Vamos Hacer Hoy?</h1>
             <ul className="grupo-superior">
-              
               <li>
-                <Link to="/Transactions/:id"><button>TRANSACTION</button></Link>
+                <Link to={`/Transactions/${id}`}><button>TRANSACTION</button></Link>
               </li>
             </ul>
             <ul className="grupo-inferior">
