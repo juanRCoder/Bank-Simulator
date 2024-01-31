@@ -1,6 +1,6 @@
 <div align='center'>
  <h1><em>BANK SIMULATOR</em></h1>
-  <img src="./src/images/bank.jpg" alt="Logo" width="400" height="200" >
+  <img src="./src/images/showBank.jpg" alt="Logo" height="200" >
  <p>  </p>
  <p>  </p>
 <p align='justify'>
@@ -57,11 +57,11 @@ Asegúrate de tener las siguientes tecnologías y dependencias antes de ejecutar
 
 ## Contactos
 
-> Juan Ramirez
+#### Juan Ramirez
 > Linkedin : [@juan Ramirez](https://www.linkedin.com/in/juan-ramirez-490b84271/)
 > Instagram : [@juanrcoder](https://www.instagram.com/juanrcoder/)
 
-> Oscar Morales
+#### Oscar Morales
 > Linkedin: [@Oskar Morales](https://www.linkedin.com/in/oskarmorales/)
 > Github: [0skarmp](https://github.com/0skarmp)
 
