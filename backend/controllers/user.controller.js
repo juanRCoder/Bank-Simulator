@@ -45,3 +45,32 @@ export const getDashboard = async (req, res) => {
     res.status(500).json({ e: "Error al procesar los datos del usuario" });
   }
 };
+
+export const getMovementsForUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    if (!userId) {
+      return res.status(400).json({ error: "Datos de entrada incompletos" });
+    }
+
+    const findUser = await Users.findById(userId);
+    if (!findUser) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    const userMovements = await Movements.find({ id_user: findUser._id });
+    if (!userMovements) {
+      return res
+        .status(404)
+        .json({ error: "Usuario no vinculado con movimientos" });
+    }
+
+    res.status(200).json({ userMovements });
+    
+  } catch (e) {
+    console.log("Error en el controlador de Movimientos: " + e.message);
+    res
+      .status(500)
+      .json({ e: "Error al procesar los datos del movimiento por usuario" });
+  }
+};

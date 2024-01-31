@@ -15,8 +15,8 @@ const BodyDashboard = () => {
               </li>
             </ul>
             <ul className="grupo-inferior">
-              <li>
-                <button>Mis Movimientos</button>
+            <li>
+                <Link to={`/ListMovements/${id}`}><button>Movimientos</button></Link>
               </li>
               <li>
                 <button>Estado de Cuenta</button>

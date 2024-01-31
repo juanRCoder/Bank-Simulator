@@ -9,6 +9,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import Deposito from "../Pages/Deposito/Deposito";
 import Retiro from "../Pages/Retiro/Retiro";
 import Transaction from "../Pages/Transactions/Transaction";
+import Movements from "../Pages/Movements/Movements";
 
 const Routers = () => {
   return (
@@ -22,6 +23,7 @@ const Routers = () => {
           <Route path="/Deposito" element={<Deposito/>}/>
           <Route path="/Retiro" element={<Retiro/>}/>
           <Route path="/Transactions/:id" element={<Transaction/>}/>
+          <Route path="/ListMovements/:id" element={<Movements/>}/>
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
