@@ -1,6 +1,7 @@
 <img src="./src/images/showBank.jpg" alt="Logo" height="200" >
 <p align='justify'>
-<h1 style="display: inline-block;">BANK SIMULATOR</h1>, es un aplicativo web el cual como lo dice el titulo simula las diferentes transacciones que uno puede realizarlo de manera fisica en un banco. Aparte puedes loguearte con tus datos bancarios para que puedas consultar su informacion bancario como el estado de cuenta, lista de movimientos y realizar transferencias de dinero a otras personas.
+<h1 style="display: inline-block;">BANK SIMULATOR</h1>
+Es un aplicativo web el cual como lo dice el titulo simula las diferentes transacciones que uno puede realizarlo de manera fisica en un banco. Aparte puedes loguearte con tus datos bancarios para que puedas consultar su informacion bancario como el estado de cuenta, lista de movimientos y realizar transferencias de dinero a otras personas.
 </p>
 
 Link del proyecto: [http://localhost:3006](http://localhost:3006)
@@ -47,14 +48,16 @@ Asegúrate de tener las siguientes tecnologías y dependencias antes de ejecutar
 </div>
 
 
-## Contactos
-#### Juan Ramirez
-<p>Linkedin : [@juan Ramirez](https://www.linkedin.com/injuan-ramirez-490b84271/)</p>
-<p>Instagram : [@juanrcoder](https://www.instagram.com/juanrcoder/)</p>
+## Colaboradores
 
-#### Oscar Morales
-<p>Linkedin: [@Oskar Morales](https://www.linkedin.com/in/oskarmorales/)</p>
-<p>Github: [0skarmp](https://github.com/0skarmp)</p>
+### Juan Ramirez
+- Linkedin: [Juan Ramirez](https://www.linkedin.com/in/juan-ramirez-490b84271/)
+- Instagram: [juanrcoder](https://www.instagram.com/juanrcoder/)
+
+### Oscar Morales
+- Linkedin: [Oscar Morales](https://www.linkedin.com/in/oskarmorales/)
+- Github: [0skarmp](https://github.com/0skarmp)
+
 
 Link del proyecto: [http://localhost:3006](http://localhost:3006)
 
