@@ -14,7 +14,7 @@ function Movements() {
         });
         if (response.ok) {
           const data = await response.json();
-          const movements = data.userMovements; 
+          const movements = data.userMovements;
           console.log(movements);
           setMovements(movements);
         } else {
@@ -37,10 +37,10 @@ function Movements() {
         {movements &&
           movements.map((m, i) => (
             <div key={i}>
-              <p>{m.deposited}</p>
-              <p>{m.withdrawaled}</p>
-              <p>{m.for}</p>
-              <p>{m.timestamp}</p>
+              {m.deposited && <p>Deposited: {m.deposited}</p>}
+              {m.withdrawaled && <p>Withdrawaled: {m.withdrawaled}</p>}
+              <p>by: {m.from_user}</p>
+              <p>Timestamp: {m.timestamp}</p>
             </div>
           ))}
       </div>
