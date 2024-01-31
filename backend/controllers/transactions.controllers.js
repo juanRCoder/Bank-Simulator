@@ -13,12 +13,13 @@ const createNewMovement = (quantity, user) => {
   });
 };
 
-const createNewHistory = (user) => {
+const createNewHistory = (user, imUser) => {
   return new History({
-    name: user.name,
-    lastName: user.lastName,
-    cardNumber: user.cardNumber,
+    name: imUser.name,
+    lastName: imUser.lastName,
+    cardNumber: imUser.cardNumber,
     timestamp: moment().tz("America/Lima").format(),
+    for: `${user.name} ${user.lastName}`,
   });
 };
 
@@ -59,7 +60,7 @@ export const postDepositUser = async (req, res) => {
       await newMovement.save();
 
       //creando una nuevo registro(historial)
-      const newHistory = createNewHistory(findUser);
+      const newHistory = createNewHistory(findUser, imUser);
       await newHistory.save();
 
       // Actualizar para agregar el campo de depositado para el historial.
