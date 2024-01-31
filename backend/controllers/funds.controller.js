@@ -3,23 +3,21 @@ import Users from "../../databases/schemas/user.schema.js";
 import History from "../../databases/schemas/history.schema.js";
 import moment from "moment-timezone";
 
-const createNewMovement = (quantity, user) => {
+const createNewMovement = (user) => {
   return new Movements({
     id_user: user._id,
-    name: "Bank",
-    lastName: "Simulator",
+    from_user: "Bank Simulator",
     timestamp: moment().tz("America/Lima").format(),
-    amount: quantity,
+    for: `${user.name} ${user.lastName}`,
   });
 };
 
 const createNewHistory = (user) => {
   return new History({
-    name: "Bank",
-    lastName: "Simulator",
-    cardNumber: user.cardNumber,
+    from: "Bank Simulator",
     timestamp: moment().tz("America/Lima").format(),
     for: `${user.name} ${user.lastName}`,
+    cardNumber: user.cardNumber,
   });
 };
 
@@ -48,7 +46,7 @@ export const postDeposit = async (req, res) => {
       await findUser.save();
 
       //creando un nuevo movimiento
-      const newMovement = createNewMovement(deposit, findUser);
+      const newMovement = createNewMovement(findUser);
       await newMovement.save();
 
       //creando una nuevo registro(historial)
@@ -60,14 +58,17 @@ export const postDeposit = async (req, res) => {
         { _id: newHistory._id },
         { $set: { deposited: deposit } }
       );
+      await Movements.updateOne(
+        { _id: newMovement._id },
+        { $set: { deposited: deposit } }
+      );
 
       //aplicar todo los cambios
       await session.commitTransaction();
 
       //enviar al frontend los datos necesarios para verificar el deposito.
       res.status(201).json({
-        name: findUser.name,
-        lastName: findUser.lastName,
+        name:`${findUser.name} ${findUser.lastName}`,
         deposit: newMovement.amount,
         date: newMovement.timestamp,
       });
@@ -109,7 +110,7 @@ export const postRetiro = async (req, res) => {
       findUser.amount -= withdrawal;
       await findUser.save();
 
-      const newMovement = createNewMovement(withdrawal, findUser);
+      const newMovement = createNewMovement(findUser);
       await newMovement.save();
 
       const newHistory = createNewHistory(findUser);
@@ -120,14 +121,18 @@ export const postRetiro = async (req, res) => {
         { _id: newHistory._id },
         { $set: { withdrawaled: withdrawal } }
       );
+      await Movements.updateOne(
+        { _id: newMovement._id },
+        { $set: { withdrawaled: withdrawal } }
+      );
+
 
       //aplicar todo los cambios
       await session.commitTransaction();
 
       //enviar al frontend los datos necesarios para verificar el retiro.
       res.status(201).json({
-        name: findUser.name,
-        lastName: findUser.lastName,
+        name: `${findUser.name} ${findUser.lastName}`,
         withdrawal: newMovement.amount,
         date: newMovement.timestamp,
       });

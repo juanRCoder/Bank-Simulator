@@ -15,10 +15,10 @@ const Transaction = () => {
         setToken(value);
         break;
       case "cantDeposit":
-        setCantDeposit(value);
+        setCantDeposit(parseInt(value));
         break;
       case "accountNumber":
-        setAccountNumber(value);
+        setAccountNumber(parseInt(value));
         break;
       default:
         break;
@@ -38,7 +38,7 @@ const Transaction = () => {
       const response = await fetch(`/sendDepositUser/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({token, accountNumber, cantDeposit }),
+        body: JSON.stringify({ token, accountNumber, cantDeposit }),
       });
 
       if (response.ok) {
@@ -62,7 +62,7 @@ const Transaction = () => {
 
         <label htmlFor="accountNumber">
           {" "}
-          El numero de cuenta
+          Numero de cuenta a transferir
           <input
             className="input"
             type="number"
@@ -95,7 +95,7 @@ const Transaction = () => {
         </label>
         <label htmlFor="token">
           {" "}
-          ingrese su token
+          ingrese su token propio
           <input
             className="input"
             type="text "

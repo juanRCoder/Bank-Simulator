@@ -7,13 +7,12 @@ const movementSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Users",
     },
-    name: String,
-    lastName: String,
+    from_user: String,
     timestamp: {
       type: Date,
       default: () => moment.tz("America/Lima").format(),
     },
-    amount: Number,
+    for: String,
   },
   { strict: false, versionKey: false }
 );

@@ -3,30 +3,28 @@ import Users from "../../databases/schemas/user.schema.js";
 import History from "../../databases/schemas/history.schema.js";
 import moment from "moment-timezone";
 
-const createNewMovement = (quantity, user) => {
+const createNewMovement = (user, imUser) => {
   return new Movements({
-    id_user: user._id,
-    name: user.name,
-    lastName: user.lastName,
+    id_user: imUser._id,
+    from_user: `${imUser.name} ${imUser.lastName}`,
     timestamp: moment().tz("America/Lima").format(),
-    amount: quantity,
+    for: `${user.name} ${user.lastName}`,
   });
 };
 
 const createNewHistory = (user, imUser) => {
   return new History({
-    name: imUser.name,
-    lastName: imUser.lastName,
-    cardNumber: imUser.cardNumber,
+    from: `${imUser.name} ${imUser.lastName}`,
     timestamp: moment().tz("America/Lima").format(),
     for: `${user.name} ${user.lastName}`,
+    cardNumber: user.cardNumber,
   });
 };
 
 export const postDepositUser = async (req, res) => {
   try {
     const { token, accountNumber, cantDeposit } = req.body;
-    const idUser = req.params.id;
+    const id = req.params.id;
 
     if (!token || !accountNumber || !cantDeposit) {
       return res.status(400).json({ error: "Datos de entrada incompletos" });
@@ -41,9 +39,16 @@ export const postDepositUser = async (req, res) => {
     }
 
     //Usuario que envia el deposito
-    const imUser = await Users.findById({ idUser, token });
+    const imUser = await Users.findOne({ _id: id, token: token });
     if (!imUser) {
       return res.status(404).json({ error: "Usuario mismo no encontrado" });
+    }
+
+    //verificar si el monto que deposito es mayor al que tengo
+    if (cantDeposit > imUser.amount) {
+      return res
+        .status(400)
+        .json({ error: `Saldo insuficiente: ${imUser.amount}` });
     }
 
     const session = await Users.startSession();
@@ -56,7 +61,7 @@ export const postDepositUser = async (req, res) => {
       await imUser.save();
 
       //creando un nuevo movimiento
-      const newMovement = createNewMovement(cantDeposit, findUser);
+      const newMovement = createNewMovement(findUser, imUser);
       await newMovement.save();
 
       //creando una nuevo registro(historial)
@@ -66,7 +71,11 @@ export const postDepositUser = async (req, res) => {
       // Actualizar para agregar el campo de depositado para el historial.
       await History.updateOne(
         { _id: newHistory._id },
-        { $set: { for: findUser.name, deposited: cantDeposit } }
+        { $set: { deposited: cantDeposit } }
+      );
+      await Movements.updateOne(
+        { _id: newMovement._id },
+        { $set: { deposited: cantDeposit } }
       );
 
       //aplicar todo los cambios
@@ -74,9 +83,8 @@ export const postDepositUser = async (req, res) => {
 
       //enviar al frontend los datos necesarios para verificar el deposito.
       res.status(201).json({
-        name: findUser.name,
-        lastName: findUser.lastName,
-        deposit: newMovement.amount,
+        name: `${findUser.lastName} ${findUser.name}`,
+        deposit: cantDeposit,
         date: newMovement.timestamp,
       });
     } catch (error) {

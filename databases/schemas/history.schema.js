@@ -3,14 +3,13 @@ import moment from "moment-timezone";
 
 const historySchema = new mongoose.Schema(
   {
-    name: String,
-    lastName: String,
-    cardNumber: Number,
+    from: String,
     timestamp: {
       type: Date,
       default: () => moment.tz("America/Lima").format(),
     },
     for: String,
+    cardNumber: Number,
   },
   { strict: false, versionKey: false }
 );
