@@ -1,5 +1,6 @@
 import React from "react";
-import "./BodyDashboard.css";
+
+
 import { Link, useParams} from 'react-router-dom'
 const BodyDashboard = () => {
   const { id } = useParams();

@@ -1,40 +1,100 @@
-import { Link } from 'react-router-dom'
-import './Navbar.css'
-import React, { useState, useEffect } from 'react'
-import logo from '../../images/logo.png'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../images/logo.png";
+import Login from "../../Pages/Login/Login";
+import Retiro from "../../Pages/Retiro/Retiro";
 
 const Navbar = () => {
-
-  const [menu, setMenu] = useState("Landing")
-
-
+  const [open, setOpen] = useState(false);
+  const [openDeposit, setOpenDeposit] = useState(false);
+  const [menu, setMenu] = useState("Landing");
+  const [Withdrawal, setWithdrawal] = useState(false);
 
   return (
     <>
-      <div className='Navbar'>
-        <div className='Navlogo'>
-          <img src={logo} alt="BANK" />
-        
-        </div>
-
-        <ul className='nav-menu'>
-          <li onClick={() => { setMenu("Home") }}><Link style=
-          {{ textDecoration: 'none' }} to="/">Home</Link>  {menu === "Home" ?   <hr /> : <></>}</li>
-          <li onClick={() => { setMenu("info") }}><Link  style=
-          {{ textDecoration: 'none' }} to="/Deposito">Depositar  Dinero</Link> {menu === "Deposito" ? <hr /> : <></>}</li>
-          <li onClick={() => { setMenu("GetAcard") }}><Link style=
-          {{ textDecoration: 'none' }} to="/Retiro">Retirar Dinero</Link>{menu === "GetAcard" ? <hr /> : <></>}</li>
-         
-        </ul>
-        <div className='nav-login-car'>
-          <Link to="login"><button>Login</button></Link>
-
+      <div
+        className="shadow-xl shadow-gray-300"
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.1)",
+        }}
+      >
+        <ul className="list-none flex justify-around text-blue-900 ">
           
-        </div>
+          <li className="w-96 mr-10 -mt-14">
+            <img src={logo} alt="Bank" />
+          </li>
+          <li className="mr-28 mt-10 text-2xl ">
+            {" "}
+            <button onClick={() => setOpenDeposit(true)}>Deposit</button>
+            {openDeposit && (
+              <div className=" fixed inset-0 z-50 flex items-center justify-center">
+                <div
+                  className="fixed inset-0 bg-black opacity-60"
+                  onClick={() => setOpenDeposit(false)}
+                ></div>
+
+                <div className=" rounded-3xl shadow-black shadow-2xl  bg-slate-200 p-8 relative">
+                  <button
+                    className="absolute top-4 right-4 text-gray-600"
+                    onClick={() => setOpenDeposit(true)}
+                  ></button>
+
+                  <Deposito />
+                </div>
+              </div>
+            )}
+          </li>
+          <li className="mr-28 mt-10 text-2xl">
+            <button onClick={() => setWithdrawal(true)}>Withdrawal</button>
+            {
+              Withdrawal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center">
+                <div
+                  className="fixed inset-0 bg-black opacity-60"
+                  onClick={() => setWithdrawal(false)}
+                ></div>
+
+                <div className="bg-white p-8 relative">
+                  <button
+                    className="absolute top-4 right-4 text-gray-600"
+                    onClick={() => setWithdrawal(true)}
+                  >
+                  
+                  </button>
+
+                  <Retiro />
+                </div>
+              </div>
+              )
+            }
+          </li>
+
+          <li className="mr-20 mt-10 text-2xl">
+            <button onClick={() => setOpen(true)}>Login</button>
+            {open && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center">
+                <div
+                  className="fixed inset-0 bg-black opacity-60"
+                  onClick={() => setOpen(false)}
+                ></div>
+
+                <div className="bg-white p-8 relative">
+                  <button
+                    className="absolute top-4 right-4 text-gray-600"
+                    onClick={() => setOpen(true)}
+                  >
+                    Cerrar
+                  </button>
+
+                  <Login />
+                </div>
+              </div>
+            )}
+          </li>
+        </ul>
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

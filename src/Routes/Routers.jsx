@@ -15,7 +15,7 @@ const Routers = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+       
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
@@ -25,7 +25,7 @@ const Routers = () => {
           <Route path="/Transactions/:id" element={<Transaction/>}/>
           <Route path="/ListMovements/:id" element={<Movements/>}/>
         </Routes>
-        <Footer></Footer>
+        
       </BrowserRouter>
     </>
   );
