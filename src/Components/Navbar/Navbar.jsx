@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 import Login from "../../Pages/Login/Login";
 import Retiro from "../../Pages/Retiro/Retiro";
+import Deposito from "../../Pages/Deposito/Deposito";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

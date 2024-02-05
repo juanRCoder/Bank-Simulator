@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BodyDashboard from "../../Components/Body/BodyDashboard";
+import NavbarDashboard from "../../Components/Navbar/NavbarDashboard";
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ const Dashboard = () => {
 
   return (
     <>
+    <NavbarDashboard/>
     <BodyDashboard/>
       {" "}
       {datos && (
