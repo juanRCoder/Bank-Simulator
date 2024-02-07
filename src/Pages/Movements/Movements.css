@@ -9,7 +9,7 @@
   border: 1px solid #ddd;
 }
 .containerMovements:first-child {
-  margin-top: 105px;
+  margin-top: 120px;
 }
 .MovementsDatos {
   width: 80%;
@@ -17,7 +17,7 @@
 .MovementsName {
   font-size: 23px;
   padding: 5px 0px 0px 20px;
-  color: #7d89a7;
+  color: #0c889f;
   font-weight: 600;
 }
 .MovementsFecha {
@@ -42,7 +42,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #061b51;
+  background-image: linear-gradient(to right, #06b6d6, #4dc5e6);
+  box-shadow: 0 10px 15px -3px #06b6d675, 0 0px 1px -4px #06b6d691;
   width: 100%;
   top: 0;
 }

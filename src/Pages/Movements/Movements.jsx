@@ -43,8 +43,17 @@ function Movements() {
           </Link>
         </button>
       </div>
+      {/* Modo desarrollo */}
+      {/* <div className="containerMovements" style={{marginTop: "120px"}}>
+        <div className="MovementsDatos">
+          <p className="MovementsName">Jhon Doe</p>
+          <p className="MovementsFecha">05-febrero, 15:34</p>
+        </div>
+        <p className="amount">S/ 1500</p>
+      </div> */}
 
-      <div>
+      {/* Modo Producción */}
+      {/* <div>
         {movements &&
           movements.map((m, i) => {
             const fechaHoraUTC = new Date(m.timestamp);
@@ -68,20 +77,13 @@ function Movements() {
                 </div>
                 {m.deposited && <p className="amount">S/ {m.deposited}</p>}
                 {m.withdrawaled && (
-                  <p className="amount" style={{ color: "#eb0000" }}>
+                  <p className="amount" style={{ color: "#e91e63" }}>
                     - S/ {m.withdrawaled}
                   </p>
                 )}
               </div>
             );
           })}
-      </div>
-      {/* <div className="containerMovements">
-        <div className="MovementsDatos">
-          <p className="MovementsName">Jhon Doe</p>
-          <p className="MovementsFecha">05-febrero, 15:34</p>
-        </div>
-        <p className="amount">S/ 1500</p>
       </div> */}
     </>
   );
