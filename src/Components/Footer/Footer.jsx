@@ -5,7 +5,9 @@ import logo from '../../images/logo.png'
 const Footer = () => {
   return (
     <>
-       <div className='flex rounded-2xl justify-between bg-blue-50 mt-20 w-full text-blue-950  bottom-0'>
+       <div style={{
+        backgroundColor: "rgba(0, 0, 0, 0.1)"
+       }} className='flex rounded-2xl justify-between mt-20 w-full text-blue-950  bottom-0'>
        <div className='ml-20 flex justify-between'>
         <div>
         <img className='w-80 -ml-10' src={logo} alt="" />

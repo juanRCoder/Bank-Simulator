@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BodyDashboard from "../../Components/Body/BodyDashboard";
+import Footer from '../../Components/Footer/Footer'
 import NavbarDashboard from "../../Components/Navbar/NavbarDashboard";
-
 const Dashboard = () => {
   const { id } = useParams();
   const [datos, setDatos] = useState(null);
@@ -30,6 +30,8 @@ const Dashboard = () => {
 
   return (
     <>
+    <div className="border-b-2 border-black ">
+      
     <NavbarDashboard/>
     <BodyDashboard/>
       {" "}
@@ -40,6 +42,11 @@ const Dashboard = () => {
           <p>Monto: {datos.amount}</p>
         </>
       )}
+    </div>
+      <div className="-mt-20 absolute w-full">
+     <Footer  />
+     </div> 
+    
     </>
   );
 };
