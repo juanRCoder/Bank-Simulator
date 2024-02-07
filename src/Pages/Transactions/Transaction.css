@@ -1,0 +1,95 @@
+.containerFormTransaction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+.containerFormTransaction > .form {
+  background-color: #eee;
+  height: 68%;
+  width: 367px;
+  border-radius: 10px;
+  padding: 25px;
+  position: relative;
+}
+.boxForm {
+  background-color: #ddd;
+  height: 94%;
+  border-radius: 10px;
+}
+.message {
+  box-shadow: 0 10px 13px -6px #06b6d6;
+  background-image: linear-gradient(to right, #06b6d6, #4dc5e6);
+  color: #fff;
+  position: absolute;
+  top: 16px;
+  left: 49px;
+  padding: 11px 58px;
+  border-radius: 10px;
+  font-size: 22px;
+}
+.accountNumber,
+.cantDeposit,
+.token {
+  display: block;
+  font-weight: 600;
+  color: #777;
+  margin: 18px 0px 2px 25px;
+}
+.inputAccountNumber,
+.inputCantDeposit,
+.inputToken {
+  background-color: white;
+  display: block;
+  color: #999;
+  width: 90%;
+  margin: auto;
+  padding: 8px 0px 8px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+.btnSubmit {
+  box-shadow: 0 10px 15px -3px #06b6d6;
+  background-image: linear-gradient(to right, #06b6d6, #4dc5e6);
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 25px;
+  border-radius: 10px;
+  padding: 8px 0px;
+  transition: transform 0.1s;
+}
+.btnSubmit:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(to right, #09d0f3, #29ccf9);
+}
+.btnSubmit:active {
+  transform: scale(1);
+}
+.accountNumber {
+  padding-top: 46px;
+}
+.boxIfResult,
+.boxElseResult {
+  position: absolute;
+  top: -47px; /*18px*/
+  background: #84ff89;
+  padding: 10px 58px;
+  border-radius: 10px;
+  color: #333;
+  transition: top 0.5s, opacity 1s ease-in-out;
+  opacity: 1;
+}
+.boxElseResult {
+  background: #d53126;
+  color: #fff;
+}
+.boxIfResult.transparent {
+  opacity: 0;
+}
