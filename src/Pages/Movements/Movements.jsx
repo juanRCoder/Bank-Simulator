@@ -36,7 +36,7 @@ function Movements() {
   return (
     <>
       <div className="MovementsTitle">
-        <h1>Lista de Movimientos</h1>
+        <h1>Movimientos</h1>
         <button>
           <Link to={`/getDashboard/${id}`}>
             <IoMdReturnLeft title="Regresar" />
@@ -44,13 +44,13 @@ function Movements() {
         </button>
       </div>
       {/* Modo desarrollo */}
-      {/* <div className="containerMovements" style={{marginTop: "120px"}}>
+      <div className="containerMovements" style={{marginTop: "120px"}}>
         <div className="MovementsDatos">
           <p className="MovementsName">Jhon Doe</p>
           <p className="MovementsFecha">05-febrero, 15:34</p>
         </div>
         <p className="amount">S/ 1500</p>
-      </div> */}
+      </div>
 
       {/* Modo Producción */}
       {/* <div>

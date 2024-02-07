@@ -38,23 +38,36 @@
 
 .MovementsTitle {
   position: fixed;
-  height: 85px;
+  height: 104px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to right, #06b6d6, #4dc5e6);
-  box-shadow: 0 10px 15px -3px #06b6d675, 0 0px 1px -4px #06b6d691;
   width: 100%;
   top: 0;
+  border-bottom: 1px solid #777;
 }
 .MovementsTitle > h1 {
-  color: #fff;
-  font-size: 38px;
+  font-weight: 700;
+  font-size: 32px;
+  color: #777;
+  text-decoration-line: underline;
 }
 .MovementsTitle > button {
+  box-shadow: 0 10px 13px -6px #06b6d6;
+  background-image: linear-gradient(to right, #06b6d6, #4dc5e6);
   color: white;
   position: absolute;
-  top: 28%;
+  top: 30px;
   right: 30px;
+  padding: 2px 25px;
+  border-radius: 10px;
   font-size: 40px;
+  transition: transform 0.1s;
+}
+.MovementsTitle > button:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(to right, #09d0f3, #29ccf9);
+}
+.MovementsTitle > button:active {
+  transform: scale(1);
 }
