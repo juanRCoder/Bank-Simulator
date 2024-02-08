@@ -5,6 +5,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+        salsa :['Noto Serif',
+         'PT Serif', 
+        'Salsa', 'cursive']
       },
     },
   },
