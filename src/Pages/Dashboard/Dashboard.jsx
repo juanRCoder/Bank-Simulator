@@ -30,7 +30,7 @@ const Dashboard = () => {
 
   return (
     <>
-    <div className="border-b-2 border-black ">
+    <div className="navbarLanding">
       
     <NavbarDashboard/>
     <BodyDashboard/>

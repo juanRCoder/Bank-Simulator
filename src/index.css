@@ -1,5 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,900&family=PT+Serif:ital,wght@1,700&family=Salsa&display=swap');
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,900&family=PT+Serif:ital,wght@1,700&family=Salsa&display=swap");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600&display=swap");
+
+.navbarLanding {
+  box-shadow: 0 0px 7px 0px #06b6d6;
+  background-image: linear-gradient(to right, #06b6d6, #4dc5e6);
+  font-family: "Inter";
+}
+.botonsUL {
+  align-items: center;
+  width: 973px;
+}
+.btnLogout {
+  outline: 1px solid #fff;
+}
+.mainDashboard {
+  height: 449px;
+}
+.optionsMainDashboard {
+  transform: scale(0.9);
+  margin: 0px 64px 0px 0px;
+}
+.containInfoCard {
+  background-image: linear-gradient(to right, #e1ebed, #ddf3f9);
+  margin-left: 79px;
+  margin-top: 33px;
+  width: 85%;
+  box-shadow: none;
+}
+.statusCard {
+  margin: 19px 98px;
+  margin-top: 37px;
+  width: 300px;
+  height: 320px;
+  padding: 10px;
+}
+h1.font-inter {
+  text-align: left;
+  padding-left: 9px;
+}
+.numberCard {
+    padding-left: 10px;
+}
+.nameCard {
+    font-size: 10px;
+}

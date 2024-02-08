@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 import Login from "../../Pages/Login/Login";
 import Retiro from "../../Pages/Retiro/Retiro";
-import Deposito from '../../Pages/Deposito/Deposito'
+import Deposito from "../../Pages/Deposito/Deposito";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -13,14 +12,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div
-        className="shadow-xl shadow-gray-300 " 
-        style={{
-          backgroundColor: "rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        <ul className="list-none flex justify-around text-blue-900 ">
-          
+      <div className="navbarLanding">
+        <ul className="list-none flex justify-around text-white ">
           <li className="w-96 mr-10 -mt-14">
             <img src={logo} alt="Bank" />
           </li>
@@ -47,9 +40,8 @@ const Navbar = () => {
           </li>
           <li className="mr-28 mt-10 text-2xl">
             <button onClick={() => setWithdrawal(true)}>Withdrawal</button>
-            {
-              Withdrawal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center">
+            {Withdrawal && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center">
                 <div
                   className="fixed inset-0 bg-black opacity-60"
                   onClick={() => setWithdrawal(false)}
@@ -59,15 +51,12 @@ const Navbar = () => {
                   <button
                     className="absolute top-4 right-4 text-gray-600"
                     onClick={() => setWithdrawal(true)}
-                  >
-                  
-                  </button>
+                  ></button>
 
                   <Retiro />
                 </div>
               </div>
-              )
-            }
+            )}
           </li>
 
           <li className="mr-20 mt-10 text-2xl">
@@ -83,9 +72,7 @@ const Navbar = () => {
                   <button
                     className="absolute top-4 right-4 text-gray-600"
                     onClick={() => setOpen(true)}
-                  >
-                    
-                  </button>
+                  ></button>
 
                   <Login />
                 </div>
