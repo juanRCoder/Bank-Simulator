@@ -82,11 +82,7 @@ export const postDepositUser = async (req, res) => {
       await session.commitTransaction();
 
       //enviar al frontend los datos necesarios para verificar el deposito.
-      res.status(201).json({
-        name: `${findUser.lastName} ${findUser.name}`,
-        deposit: cantDeposit,
-        date: newMovement.timestamp,
-      });
+      res.status(201).json(newMovement._id);
     } catch (error) {
       await session.abortTransaction();
       throw error;
@@ -96,5 +92,31 @@ export const postDepositUser = async (req, res) => {
   } catch (e) {
     console.log("Error en el controlador de Transaccion: " + e.message);
     res.status(500).json({ e: "Error al procesar los datos del Transaccion" });
+  }
+};
+
+
+
+
+export const getResultTransaction = async (req, res) => {
+  try {
+    const transactionId = req.params.idResult;
+
+    const resultTransacion = await Movements.findById(transactionId);
+    if (!resultTransacion) {
+      return res.status(404).json({ error: "Transacción no encontrada" });
+    }
+
+    res.status(200).json({
+      id_user: resultTransacion.id_user,
+      for: resultTransacion.for,
+      time: resultTransacion.timestamp,
+      amount: resultTransacion.deposited,
+    });
+  } catch (e) {
+    console.error("Error en el controlador de Transaccion:", e.message);
+    res
+      .status(500)
+      .json({ error: "Error al procesar los datos de la transacción" });
   }
 };

@@ -44,7 +44,7 @@
   justify-content: center;
   width: 100%;
   top: 0;
-  border-bottom: 1px solid #777;
+  background-color: #fff;
 }
 .MovementsTitle > h1 {
   font-weight: 700;
@@ -61,7 +61,7 @@
   right: 30px;
   padding: 2px 25px;
   border-radius: 10px;
-  font-size: 40px;
+  font-size: 18px;
   transition: transform 0.1s;
 }
 .MovementsTitle > button:hover {
@@ -70,4 +70,7 @@
 }
 .MovementsTitle > button:active {
   transform: scale(1);
+}
+.spanText {
+  font-size: 17px;
 }

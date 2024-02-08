@@ -1,0 +1,116 @@
+.boxResultTransaction {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(37deg, #ffffff, #d7f6ff);
+  user-select: none;
+}
+.boxResult {
+  height: 67%;
+  width: 335px;
+  position: relative;
+  border-radius: 2px;
+  outline: 1px solid #06b6d6;
+}
+.boxHeader > h1 {
+  text-align: center;
+  font-size: 28px;
+  text-decoration: underline;
+  padding-top: 16px;
+  color: #06b6d6;
+}
+.boxHeader > p {
+  color: #06b6d6;
+  position: absolute;
+  top: 61px;
+  left: 18px;
+}
+.iconCheck {
+  color: #06b6d6;
+  font-size: 53px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+.boxAmount {
+  height: 41%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+}
+.boxAmount > p {
+  font-size: 89px;
+  color: #0c889f;
+}
+.boxAmount > span {
+  font-size: 23px;
+  padding-bottom: 80px;
+  color: #0c889f;
+}
+.user {
+  color: #555;
+  text-align: center;
+  font-size: 30px;
+}
+.time {
+  color: #555;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 14px;
+}
+
+.boxIfResult {
+  position: absolute;
+  top: -47px;
+  background: #0c889f;
+  padding: 10px 58px;
+  border-radius: 10px;
+  color: #fff;
+  transition: top 0.5s, opacity 1s ease-in-out;
+  opacity: 1;
+}
+
+.boxIfResult.transparent {
+  opacity: 0;
+}
+.boxLogo {
+  height: 100px;
+}
+.boxLogo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.containerResultTransaction > .button,
+.containerResultTransaction > .button2 {
+  box-shadow: 0 10px 13px -6px #06b6d6;
+  background-image: linear-gradient(to right, #06b6d6, #4dc5e6);
+  color: white;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  padding: 2px 25px;
+  border-radius: 10px;
+  font-size: 18px;
+  transition: transform 0.1s;
+}
+.containerResultTransaction > .button2 {
+  top: 30px;
+  right: 215px;
+}
+.containerResultTransaction > .button:hover,
+.containerResultTransaction > .button2:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(to right, #09d0f3, #29ccf9);
+}
+.containerResultTransaction > .button:active,
+.containerResultTransaction > .button2:active {
+  transform: scale(1);
+}
+.spanText {
+  font-size: 17px;
+}

@@ -37,23 +37,27 @@ function Movements() {
     <>
       <div className="MovementsTitle">
         <h1>Movimientos</h1>
-        <button>
+        <button className="button">
           <Link to={`/getDashboard/${id}`}>
-            <IoMdReturnLeft title="Regresar" />
+            <IoMdReturnLeft
+              title="Regresar"
+              style={{ display: "inline-block" }}
+            />
+            <span className="spanText">Dashboard</span>
           </Link>
         </button>
       </div>
       {/* Modo desarrollo */}
-      <div className="containerMovements" style={{marginTop: "120px"}}>
+      {/* <div className="containerMovements" style={{marginTop: "120px"}}>
         <div className="MovementsDatos">
           <p className="MovementsName">Jhon Doe</p>
           <p className="MovementsFecha">05-febrero, 15:34</p>
         </div>
         <p className="amount">S/ 1500</p>
-      </div>
+      </div> */}
 
       {/* Modo Producción */}
-      {/* <div>
+      <div>
         {movements &&
           movements.map((m, i) => {
             const fechaHoraUTC = new Date(m.timestamp);
@@ -84,7 +88,7 @@ function Movements() {
               </div>
             );
           })}
-      </div> */}
+      </div>
     </>
   );
 }
