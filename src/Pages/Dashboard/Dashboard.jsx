@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BodyDashboard from "../../Components/Body/BodyDashboard";
-import Footer from '../../Components/Footer/Footer'
+import Footer from "../../Components/Footer/Footer";
 import NavbarDashboard from "../../Components/Navbar/NavbarDashboard";
 const Dashboard = () => {
   const { id } = useParams();
@@ -30,23 +30,22 @@ const Dashboard = () => {
 
   return (
     <>
-    <div className="navbarLanding">
-      
-    <NavbarDashboard/>
-    <BodyDashboard/>
-      {" "}
-      {datos && (
-        <>
-        
-          <p>Nombre: {datos.name}</p>
-          <p>Monto: {datos.amount}</p>
-        </>
-      )}
-    </div>
+      <div className="navbarLanding">
+        <NavbarDashboard />
+          {/*MODO Producción */}
+        {datos && (
+          <BodyDashboard
+            name={datos.name}
+            monto={datos.amount}
+            cardNumber={datos.cardNumber}
+          />
+        )}
+        {/*MODO DESARROLLO */}
+        {/* <BodyDashboard/> */}
+      </div>
       <div className="-mt-20 absolute w-full">
-     <Footer  />
-     </div> 
-    
+        <Footer />
+      </div>
     </>
   );
 };

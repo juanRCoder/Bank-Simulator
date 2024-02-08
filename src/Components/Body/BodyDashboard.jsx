@@ -11,8 +11,7 @@ import money from "../../Images/money.png";
 import saving from "../../Images/saving.png";
 import sueldo from "../../Images/sueldo.png";
 import back from "../../images/back.png";
-import background from "../../images/background.jfif";
-const BodyDashboard = () => {
+const BodyDashboard = ({name, monto, cardNumber}) => {
   const { id } = useParams();
   return (
     <>
@@ -62,7 +61,7 @@ const BodyDashboard = () => {
             className="  ml-1 mt-1  rounded-md borde flex flex-col "
           >
             <div className="z-10 shadow-xl shadow-black bg-slate-100 w-11/12 h-96 mt-10 ml-10 rounded-lg containInfoCard">
-              <div className="flex ">
+              <div className="flex floatCard">
                 <div className="ml-20 mb-8 mt-10 bg-slate-300 border w-48 h-64 rounded-lg statusCard">
                   <div className="flex p-2  gap-1 ">
                     <div className="">
@@ -76,21 +75,40 @@ const BodyDashboard = () => {
                     </div>
                   </div>
                   <div>
-                    <h1 className="font-inter">BANK SIMULATOR</h1>
-                    <h1 className="mt-4 font-inter nameCard">Usuario</h1>
-                    <h1 className="font-inter">Miguel Colmenares</h1>
-                    <h1 className="mt-4 font-inter nameCard">Card Number</h1>
-                    <p className="numberCard">xxxx xxxx xxxx xxxx </p>
-                    <p className="font-inter">Monto S/.</p>
+                    <h1
+                      className="font-inter"
+                      style={{
+                        textAlign: "center",
+                        padding: "0px",
+                        fontWeight: "600",
+                        color: "#fff",
+                        textShadow: "0px 3px 5px #fff",
+                      }}
+                    >
+                      BANK SIMULATOR
+                    </h1>
+                    <h1 className="mt-4 font-inter text-white nameCard">Usuario</h1>
+                    <h1 className="font-inter text-white">{name}</h1>
+                    <h1 className="mt-4 font-inter nameCard text-white">Card Number</h1>
+                    <h1 className="numberCard text-white">{cardNumber}</h1>
+                    <h1 className="mt-4 font-inter nameCard text-white">Monto S/.</h1>
+                    <p className="Price text-white">{monto}</p>
                     <div className="">
-                      <img className="w-20" src={chip} alt="" />
+                      <img
+                        className="w-20 chipCard"
+                        src={chip}
+                        alt="chipCard"
+                      />
                     </div>
                   </div>
                 </div>
 
                 <div className=" flex ml-40  flex-col optionsMainDashboard">
                   <div>
-                    <ul className="flex space-x-8  mt-10 font-inter" style={{color: "#0c889f", fontWeight: "700"}}>
+                    <ul
+                      className="flex space-x-8  mt-10 font-inter"
+                      style={{ color: "#0c889f", fontWeight: "700" }}
+                    >
                       <li className="mr-2">
                         <button>
                           <img className="w-20 ml-8" src={cambio} alt="" />{" "}
@@ -114,7 +132,14 @@ const BodyDashboard = () => {
                     </ul>
                   </div>
                   <div>
-                    <ul className="flex space-x-10 mt-10 font-inter" style={{color: "#0c889f", fontWeight: "700", textAlign: "center"}}>
+                    <ul
+                      className="flex space-x-10 mt-10 font-inter"
+                      style={{
+                        color: "#0c889f",
+                        fontWeight: "700",
+                        textAlign: "center",
+                      }}
+                    >
                       <li>
                         <button>
                           {" "}
