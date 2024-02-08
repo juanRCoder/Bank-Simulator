@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 const NavbarDashboard = () => {
   return (
     <>
-      <div className="flex shadow-md  border-b-2rounded-lg">
+      <div className="flex shadow-md  border-b-2rounded-lg navbarDashboard w-full h-full">
         <div className=" flex-col">
           <img className="-mt-10 mr-12 w-80 " src={logo} alt="" />
         </div>

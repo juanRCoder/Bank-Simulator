@@ -11,46 +11,50 @@ import money from "../../Images/money.png";
 import saving from "../../Images/saving.png";
 import sueldo from "../../Images/sueldo.png";
 import back from "../../images/back.png";
-const BodyDashboard = ({name, monto, cardNumber}) => {
+const BodyDashboard = ({ name, monto, cardNumber }) => {
   const { id } = useParams();
   return (
     <>
       <div>
         <div className="flex mainDashboard">
-          <div
-            className="flex flex-col border border-black w-96 mt-1 rounded-md"
-            style={{
-              // backgroundColor: "rgba(0, 0, 0, 0.1)",
-              backgroundImage: `url(${back})`,
-            }}
-          >
+          <div className="flex flex-col  rounded-md">
             <ul className="mt-10 ml-20 ">
               <div className="space-y-4 mb-4">
                 <li>
-                  <Link to={`/Transactions/${id}`}>
-                    <button className="bg-zinc-400 rounded-md w-40 h-30 hover:bg-slate-500 hover:translate-x-6">
+                  <button className="button">
+                    <Link to={`/Transactions/${id}`}>
                       <img
-                        className="flex justify-center ml-10"
+                        className="img"
                         src={transaction}
                         alt=""
                       />
-                      TRANSACTION
-                    </button>
-                  </Link>
+                      <span className="spanText">Transaction</span>
+                    </Link>
+                  </button>
                 </li>
 
                 <li>
-                  <Link to={`/ListMovements/${id}`}>
-                    <button className="bg-zinc-400 rounded-md w-40 h-24 hover:bg-slate-500 hover:translate-x-6">
-                      <img className="ml-12" src={movements} alt="" />
-                      MOVEMENTS
-                    </button>
-                  </Link>
+                  <button className="button">
+                    <Link to={`/ListMovements/${id}`}>
+                      <img
+                        className="img"
+                        src={movements}
+                        alt=""
+                      />
+                      <span className="spanText">Movements</span>
+                    </Link>
+                  </button>
                 </li>
                 <li>
-                  <button className="bg-zinc-400 rounded-md w-40 h-30 hover:bg-slate-500 hover:translate-x-6">
-                    <img className="ml-8" src={estado} alt="" />
-                    Estado de Cuenta
+                  <button className="button">
+                    <Link to={`/ListMovements/${id}`}>
+                      <img
+                        className="img"
+                        src={estado}
+                        alt=""
+                      />
+                      <span className="spanText texto">Status Account</span>
+                    </Link>
                   </button>
                 </li>
               </div>
@@ -87,11 +91,17 @@ const BodyDashboard = ({name, monto, cardNumber}) => {
                     >
                       BANK SIMULATOR
                     </h1>
-                    <h1 className="mt-4 font-inter text-white nameCard">Usuario</h1>
+                    <h1 className="mt-4 font-inter text-white nameCard">
+                      Usuario
+                    </h1>
                     <h1 className="font-inter text-white">{name}</h1>
-                    <h1 className="mt-4 font-inter nameCard text-white">Card Number</h1>
+                    <h1 className="mt-4 font-inter nameCard text-white">
+                      Card Number
+                    </h1>
                     <h1 className="numberCard text-white">{cardNumber}</h1>
-                    <h1 className="mt-4 font-inter nameCard text-white">Monto S/.</h1>
+                    <h1 className="mt-4 font-inter nameCard text-white">
+                      Monto S/.
+                    </h1>
                     <p className="Price text-white">{monto}</p>
                     <div className="">
                       <img

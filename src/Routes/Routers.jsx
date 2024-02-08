@@ -24,7 +24,9 @@ const Routers = () => {
           <Route path="/Retiro" element={<Retiro />} />
           <Route path="/Transactions/:id" element={<Transaction />} />
           <Route path="/ListMovements/:id" element={<Movements />} />
-          <Route path="/ResultTransaction/:idResult" element={<ResultTransaction />}
+          <Route
+            path="/ResultTransaction/:idResult"
+            element={<ResultTransaction />}
           />
         </Routes>
       </BrowserRouter>

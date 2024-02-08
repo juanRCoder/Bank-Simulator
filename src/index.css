@@ -17,7 +17,7 @@
   outline: 1px solid #fff;
 }
 .mainDashboard {
-  height: 100%;
+  height: 65%;
 }
 .optionsMainDashboard {
   transform: scale(0.9);
@@ -28,7 +28,7 @@
   padding-top: 6px;
   width: 85%;
   height: 100%;
-  padding-bottom: 46px;
+  padding-bottom: 40px;
   box-shadow: none;
   background-color: transparent;
 }
@@ -52,9 +52,9 @@ h1.font-inter {
 }
 .chipCard {
   position: absolute;
-  bottom: 25px;
-  left: 7px;
-  transform: scale(1.2);
+  bottom: 18px;
+  left: 4px;
+  transform: scale(1);
 }
 .Price {
   margin-left: 83px;
@@ -74,4 +74,49 @@ h1.font-inter {
   height: 353px;
   background-image: linear-gradient(to right, #e1ebed, #ddf3f9);
   border-radius: 10px;
+}
+.navbarDashboard {
+  height: 100%;
+  padding: 3px 0px;
+}
+body {
+  height: 100%;
+}
+
+li > .button {
+  box-shadow: 0 10px 13px -6px #06b6d6;
+  background-image: linear-gradient(to right, #06b6d6, #4dc5e6);
+  color: #fff;
+  padding: 2px 86px;
+  border-radius: 10px;
+  font-size: 18px;
+  width: 100%;
+  transition: transform 0.1s;
+  outline: 1px solid #fff;
+  margin-top: 6px;
+  height: 108px;
+  margin-left: -39px;
+}
+li > .button .img {
+  width: 100%;
+  color: #fff;
+  padding-right: 22px;
+}
+.texto {
+  font-size: 10px;
+}
+.button > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li > .button:hover {
+  transform: scale(1.05);
+}
+li > .button:active {
+  transform: scale(1);
+}
+.spanText {
+  font-size: 13px;
 }

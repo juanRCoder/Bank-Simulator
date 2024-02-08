@@ -4,7 +4,7 @@ import logo from "../../images/logo.png";
 const Footer = () => {
   return (
     <>
-      <div className="flex justify-between mt-20 w-full text-white bottom-0 navbarLanding">
+      <div className="flex justify-between mt-20 w-full h-full text-white bottom-0 navbarLanding fotterDashboard">
         <div className="ml-20 flex justify-between">
           <div>
             <img className="w-80 -ml-10" src={logo} alt="" />
