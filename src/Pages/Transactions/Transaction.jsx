@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { IoMdReturnLeft } from "react-icons/io";
 import "./Transaction.css";
 
 const Transaction = () => {
@@ -11,6 +12,8 @@ const Transaction = () => {
   const [token, setToken] = useState("");
   const [cantDeposit, setCantDeposit] = useState(0);
   const [accountNumber, setAccountNumber] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -39,6 +42,7 @@ const Transaction = () => {
     }
 
     try {
+      console.log(`/sendDepositUser/${id}`);
       const response = await fetch(`/sendDepositUser/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -46,18 +50,9 @@ const Transaction = () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        // console.log(data.name, data.lastName, data.deposit, data.date);
-        setPosition(18);
-        setMensajeExito("¡Transacción exitosa!");
-        // 3 segundos mostrar mensaje
-        setTimeout(() => {
-          setPosition(-47);
-        }, 3000);
-        // ultimo segundo desaparecer
-        setTimeout(() => {
-          setOpacityClass("transparent");
-        }, 2000);
+        const idResult = await response.json();
+        console.log("id: ", idResult);
+        navigate(`/ResultTransaction/${idResult}`);
       } else {
         console.error("Error en la solicitud:", response.statusText);
         setPosition(18);
@@ -78,6 +73,7 @@ const Transaction = () => {
   return (
     <>
       <div className="containerFormTransaction">
+        <h1 className="containerTitle">Transferencias de dinero</h1>
         <form
           className="form"
           action={`/sendDepositUser/${id}`}
@@ -145,6 +141,15 @@ const Transaction = () => {
         >
           {mensajeError}
         </div>
+        <button className="button">
+          <Link to={`/getDashboard/${id}`}>
+            <IoMdReturnLeft
+              title="Regresar"
+              style={{ display: "inline-block" }}
+            />
+            <span className="spanText">Dashboard</span>
+          </Link>
+        </button>
       </div>
     </>
   );

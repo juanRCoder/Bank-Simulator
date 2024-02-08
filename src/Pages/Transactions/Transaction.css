@@ -4,6 +4,30 @@
   justify-content: center;
   height: 100vh;
   font-family: "Inter", sans-serif;
+  position: relative;
+}
+.containerTitle {
+  position: absolute;
+  top: 27px;
+  font-weight: 700;
+  font-size: 32px;
+  color: #777;
+  text-decoration-line: underline;
+}
+.containerFormTransaction > button {
+  box-shadow: 0 10px 13px -6px #06b6d6;
+  background-image: linear-gradient(to right, #06b6d6, #4dc5e6);
+  color: white;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  padding: 2px 25px;
+  border-radius: 10px;
+  font-size: 18px;
+  transition: transform 0.1s;
+}
+.spanText {
+  font-size: 17px;
 }
 .containerFormTransaction > .form {
   background-color: #eee;
@@ -65,10 +89,12 @@
   padding: 8px 0px;
   transition: transform 0.1s;
 }
+.containerFormTransaction > button:hover,
 .btnSubmit:hover {
   transform: scale(1.05);
   background-image: linear-gradient(to right, #09d0f3, #29ccf9);
 }
+.containerFormTransaction > button:active,
 .btnSubmit:active {
   transform: scale(1);
 }
@@ -82,6 +108,7 @@
   background: #84ff89;
   padding: 10px 58px;
   border-radius: 10px;
+  left: 40%;
   color: #333;
   transition: top 0.5s, opacity 1s ease-in-out;
   opacity: 1;
