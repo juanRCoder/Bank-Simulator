@@ -11,6 +11,7 @@ import money from "../../Images/money.png";
 import saving from "../../Images/saving.png";
 import sueldo from "../../Images/sueldo.png";
 import back from '../../images/back.png'
+import background from '../../images/background.jfif'
 const BodyDashboard = () => {
   const { id } = useParams();
   return (
@@ -20,17 +21,18 @@ const BodyDashboard = () => {
           <div
             className="flex flex-col border border-black w-96 mt-1 rounded-md"
             style={{
-              backgroundColor: "rgba(0, 0, 0, 0.1)",
+             // backgroundColor: "rgba(0, 0, 0, 0.1)",
+             backgroundImage: `url(${back})`
             }}
           >
-            <h1 className="ml-4 mt-10 text-blue-800  text-2xl  text-center">
+            <h1 className="ml-4 mt-10 text-slate-100  text-3xl  text-center font-salsa">
               ¿What You Will Do Today?
             </h1>
             <ul className="mt-10 ml-20 ">
               <div className="space-y-4 mb-4">
                 <li >
                   <Link to={`/Transactions/${id}`}>
-                    <button className="bg-zinc-400 rounded-md w-40 h-30 hover:bg-slate-500">
+                    <button className="bg-zinc-400 rounded-md w-40 h-30 hover:bg-slate-500 hover:translate-x-6">
                       <img
                         className="flex justify-center ml-10"
                         src={transaction}
@@ -41,16 +43,16 @@ const BodyDashboard = () => {
                   </Link>
                 </li>
 
-                <li>
+                <li >
                   <Link to={`/ListMovements/${id}`}>
-                    <button className="bg-zinc-400 rounded-md w-40 h-24 hover:bg-slate-500">
+                    <button className="bg-zinc-400 rounded-md w-40 h-24 hover:bg-slate-500 hover:translate-x-6">
                       <img className="ml-12" src={movements} alt="" />
                       MOVEMENTS
                     </button>
                   </Link>
                 </li>
                 <li>
-                  <button className="bg-zinc-400 rounded-md w-40 h-30 hover:bg-slate-500">
+                  <button className="bg-zinc-400 rounded-md w-40 h-30 hover:bg-slate-500 hover:translate-x-6">
                     <img className="ml-8" src={estado} alt="" />
                     Estado de Cuenta
                   </button>
@@ -59,7 +61,7 @@ const BodyDashboard = () => {
             </ul>
           </div>
           <div style={{ 
-            backgroundImage:`url(${back})`, backgroundRepeat : 'no-repeat', width: 1200, backgroundSize:"cover", backgroundPosition:"center"
+            backgroundImage:`url(${background})`, backgroundRepeat : 'no-repeat', width: 1200, backgroundSize:"cover", backgroundPosition:"center"
           }} className="  ml-1 mt-1  rounded-md border border-black flex flex-col ">
             <div className="z-10 shadow-xl shadow-black bg-slate-100 w-11/12 h-96 mt-10 ml-10 rounded-lg">
             
