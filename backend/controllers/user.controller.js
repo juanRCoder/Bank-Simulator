@@ -42,7 +42,7 @@ export const getDashboard = async (req, res) => {
     res
       .status(200)
       .json({
-        name: findUser.name,
+        name: `${findUser.name} ${findUser.lastName}`,
         amount: findUser.amount,
         cardNumber: findUser.cardNumber,
       });
