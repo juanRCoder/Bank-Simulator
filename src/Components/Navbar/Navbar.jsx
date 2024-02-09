@@ -12,12 +12,12 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbarLanding">
+      <div style={{paddingTop: -20}} className="navbarLanding">
         <ul className="list-none flex justify-around text-white ">
-          <li className="w-96 mr-10 -mt-14">
+          <li className="w-80 mr-10 -mt-14">
             <img src={logo} alt="Bank" />
           </li>
-          <li className="mr-28 mt-10 text-2xl ">
+          <li className="mr-28 mt-6 text-2xl ">
             {" "}
             <button onClick={() => setOpenDeposit(true)}>Deposit</button>
             {openDeposit && (
@@ -38,7 +38,7 @@ const Navbar = () => {
               </div>
             )}
           </li>
-          <li className="mr-28 mt-10 text-2xl">
+          <li className="mr-28 mt-6 text-2xl">
             <button onClick={() => setWithdrawal(true)}>Withdrawal</button>
             {Withdrawal && (
               <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -59,7 +59,7 @@ const Navbar = () => {
             )}
           </li>
 
-          <li className="mr-20 mt-10 text-2xl">
+          <li className="mr-20 mt-6 text-2xl">
             <button onClick={() => setOpen(true)}>Login</button>
             {open && (
               <div className=" fixed inset-0 z-50 flex items-center justify-center">
