@@ -39,13 +39,11 @@ export const getDashboard = async (req, res) => {
     }
 
     // devolver el nombre y el monto del usuario al frontend.
-    res
-      .status(200)
-      .json({
-        name: `${findUser.name} ${findUser.lastName}`,
-        amount: findUser.amount,
-        cardNumber: findUser.cardNumber,
-      });
+    res.status(200).json({
+      name: `${findUser.name} ${findUser.lastName}`,
+      amount: findUser.amount,
+      cardNumber: findUser.cardNumber,
+    });
   } catch (e) {
     console.log("Error en el controlador de Users: " + e.message);
     res.status(500).json({ e: "Error al procesar los datos del usuario" });
@@ -71,7 +69,15 @@ export const getMovementsForUser = async (req, res) => {
         .json({ error: "Usuario no vinculado con movimientos" });
     }
 
-    res.status(200).json({ userMovements });
+    // Devolver información de todos los movimientos del usuario
+    const movementsInfo = userMovements.map((movement) => ({
+      id_user: movement.id_user,
+      name: movement.for,
+      time: movement.timestamp,
+      deposited: movement.deposited,
+    }));
+
+    res.status(200).json({ userMovements: movementsInfo });
   } catch (e) {
     console.log("Error en el controlador de Movimientos: " + e.message);
     res

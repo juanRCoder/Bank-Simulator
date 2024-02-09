@@ -60,7 +60,7 @@ function Movements() {
       <div>
         {movements &&
           movements.map((m, i) => {
-            const fechaHoraUTC = new Date(m.timestamp);
+            const fechaHoraUTC = new Date(m.time);
             const opciones = {
               day: "2-digit",
               month: "long",
@@ -76,15 +76,16 @@ function Movements() {
             return (
               <div key={i} className="containerMovements">
                 <div className="MovementsDatos">
-                  <p className="MovementsName">{m.from_user}</p>
+                  <p className="MovementsName">{m.name}</p>
                   <p className="MovementsFecha">{fechaHoraPeru}</p>
                 </div>
-                {m.deposited && <p className="amount">S/ {m.deposited}</p>}
-                {m.withdrawaled && (
+                {id === m.id_user && m.deposited ? (
                   <p className="amount" style={{ color: "#e91e63" }}>
-                    - S/ {m.withdrawaled}
+                    - S/ {m.deposited}
                   </p>
-                )}
+                ) : m.deposited ? (
+                  <p className="amount">- S/ {m.deposited}</p>
+                ) : null}
               </div>
             );
           })}

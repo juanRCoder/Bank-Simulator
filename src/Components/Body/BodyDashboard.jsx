@@ -53,7 +53,7 @@ const BodyDashboard = ({ name, monto, cardNumber }) => {
                         src={estado}
                         alt=""
                       />
-                      <span className="spanText texto">Status Account</span>
+                      <span className="spanText2">Status Account</span>
                     </Link>
                   </button>
                 </li>

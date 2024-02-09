@@ -21,13 +21,14 @@
   position: absolute;
   top: 30px;
   right: 30px;
-  padding: 2px 25px;
+  padding: 10px 25px;
   border-radius: 10px;
   font-size: 18px;
   transition: transform 0.1s;
 }
 .spanText {
   font-size: 17px;
+  padding-left: 7px;
 }
 .containerFormTransaction > .form {
   background-color: #eee;

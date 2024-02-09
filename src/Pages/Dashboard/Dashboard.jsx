@@ -33,15 +33,15 @@ const Dashboard = () => {
       <div className="navbarLanding">
         <NavbarDashboard />
           {/*MODO Producción */}
-        {/* {datos && (
+        {datos && (
           <BodyDashboard
             name={datos.name}
             monto={datos.amount}
             cardNumber={datos.cardNumber}
           />
-        )} */}
+        )}
         {/*MODO DESARROLLO */}
-        <BodyDashboard/>
+        {/* <BodyDashboard/> */}
       </div>
       <div className="-mt-20 absolute w-full">
         <Footer />
