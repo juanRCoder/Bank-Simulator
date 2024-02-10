@@ -71,9 +71,10 @@ export const postDeposit = async (req, res) => {
 
       //enviar al frontend los datos necesarios para verificar el deposito.
       res.status(201).json({
-        name:`${findUser.name} ${findUser.lastName}`,
-        deposit: newMovement.amount,
-        date: newMovement.timestamp,
+        fromUser: `${newMovement.fromUser}`,
+        forUser: `${newMovement.forUser}`,
+        deposited: deposit,
+        time: newMovement.timestamp,
       });
     } catch (error) {
       await session.abortTransaction();
@@ -128,7 +129,6 @@ export const postRetiro = async (req, res) => {
         { _id: newMovement._id },
         { $set: { withdrawaled: withdrawal } }
       );
-
 
       //aplicar todo los cambios
       await session.commitTransaction();

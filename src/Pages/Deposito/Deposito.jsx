@@ -1,9 +1,13 @@
 import { useState } from "react";
+import "./Deposito.css";
+import logoBank from "../../images/logo.png";
 
 const Deposito = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [deposit, setDeposit] = useState(0);
   const [dni, setDni] = useState("");
+  const [dataBank, setDataBank] = useState({});
+  const [position, setPosition] = useState(-625);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -13,7 +17,6 @@ const Deposito = () => {
         break;
       case "deposit":
         setDeposit(parseInt(value));
-        console.log("Valor de deposit:", value);
         break;
       case "dni":
         setDni(value);
@@ -40,12 +43,31 @@ const Deposito = () => {
 
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
+        const fechaHoraUTC = new Date(data.time);
+        const opciones = {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          timeZone: "America/Lima",
+        };
+        const fechaHoraPeru = fechaHoraUTC.toLocaleString("es-PE", opciones);
+
+        setDataBank({ ...data, formattedTime: fechaHoraPeru });
+        setPosition(0);
       } else {
         console.error("Error en la solicitud:", response.statusText);
       }
     } catch (error) {
       console.error("Error al procesar la solicitud:", error);
     }
+  };
+
+  const print = () => {
+    window.print();
   };
 
   return (
@@ -92,9 +114,7 @@ const Deposito = () => {
             </div>
           </div>
           <div className="  mb-8 text-xl  h-10 rounded-lg  ml-7 ">
-            <label  htmlFor="deposit">
-              Choose The Amount
-            </label>
+            <label htmlFor="deposit">Choose The Amount</label>
             <select
               className=" mt-2 text-base w-60 h-10 rounded-lg border border-slate-900"
               id="deposit"
@@ -137,6 +157,34 @@ const Deposito = () => {
           </div>
         </form>
       </div>
+
+      {dataBank && (
+        <div
+          className="boxModal"
+          onClick={print}
+          style={{ top: `${position}px` }}
+        >
+          <h2>{dataBank.fromUser}</h2>
+          <p className="Depositado">Deposited:</p>
+          <div className="boxMonto">
+            <span>S/</span>
+            <p className="Amount">{dataBank.deposited}</p>
+          </div>
+          <div className="boxDate">
+            <p className="dataForUser">
+              <span>For:</span>
+              {dataBank.forUser}
+            </p>
+            <p className="dataFecha">
+              <span>Date: </span>
+              {dataBank.formattedTime}
+            </p>
+          </div>
+          <div className="boxLogo">
+            <img src={logoBank} alt="logoBank" title="logoBank" />
+          </div>
+        </div>
+      )}
     </>
   );
 };
