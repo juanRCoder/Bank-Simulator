@@ -48,7 +48,6 @@ const Retiro = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data.withdrawal, data.date);
           setEstadoRetiro("exitoso"); //mensaje exitoso
           setTimeout(() => {
           setEstadoRetiro(null);

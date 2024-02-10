@@ -51,7 +51,6 @@ const Transaction = () => {
 
       if (response.ok) {
         const idResult = await response.json();
-        console.log("id: ", idResult);
         navigate(`/ResultTransaction/${idResult}`);
       } else {
         console.error("Error en la solicitud:", response.statusText);

@@ -17,7 +17,6 @@ function Movements() {
         if (response.ok) {
           const data = await response.json();
           const fetchedMovements = data.userMovements;
-          console.log(fetchedMovements);
           setMovements(fetchedMovements);
         } else {
           console.error(
