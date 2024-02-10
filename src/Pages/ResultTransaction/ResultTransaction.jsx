@@ -60,13 +60,17 @@ function ResultTransaction() {
     fetchData();
   }, [idResult]);
 
+  const print = () => {
+    window.print();
+  }
+
   return (
     <>
       <div className="containerResultTransaction">
         <div>
           {transaction && (
             <div className="boxResultTransaction">
-              <div className="boxResult" title="checke deposito">
+              <div className="boxResult" title="checke deposito" onClick={print}>
                 <div className="boxHeader">
                   <h1>Depositado</h1>
                   <FaCheckCircle className="iconCheck" />

@@ -5,19 +5,21 @@ import moment from "moment-timezone";
 
 const createNewMovement = (user, imUser) => {
   return new Movements({
-    id_user: imUser._id,
-    from_user: `${imUser.name} ${imUser.lastName}`,
+    id_fromUser: imUser._id,
+    fromUser: `${imUser.name} ${imUser.lastName}`,
     timestamp: moment().tz("America/Lima").format(),
-    for: `${user.name} ${user.lastName}`,
+    id_forUser: user._id,
+    forUser: `${user.name} ${user.lastName}`,
   });
 };
 
 const createNewHistory = (user, imUser) => {
   return new History({
     from: `${imUser.name} ${imUser.lastName}`,
+    fromTheCardNumber: imUser.cardNumber,
     timestamp: moment().tz("America/Lima").format(),
-    for: `${user.name} ${user.lastName}`,
-    cardNumber: user.cardNumber,
+    forUser: `${user.name} ${user.lastName}`,
+    forTheCardNumber: user.cardNumber,
   });
 };
 
@@ -108,8 +110,8 @@ export const getResultTransaction = async (req, res) => {
     }
 
     res.status(200).json({
-      id_user: resultTransacion.id_user,
-      for: resultTransacion.for,
+      id_user: resultTransacion.id_fromUser,
+      for: resultTransacion.forUser,
       time: resultTransacion.timestamp,
       amount: resultTransacion.deposited,
     });

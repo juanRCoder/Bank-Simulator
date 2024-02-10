@@ -2,22 +2,25 @@ import Movements from "../../databases/schemas/movements.schema.js";
 import Users from "../../databases/schemas/user.schema.js";
 import History from "../../databases/schemas/history.schema.js";
 import moment from "moment-timezone";
+import mongoose from "mongoose";
 
 const createNewMovement = (user) => {
   return new Movements({
-    id_user: user._id,
-    from_user: "Bank Simulator",
+    id_fromUser: new mongoose.Types.ObjectId(),
+    fromUser: "Bank Simulator",
     timestamp: moment().tz("America/Lima").format(),
-    for: `${user.name} ${user.lastName}`,
+    id_forUser: user._id,
+    forUser: `${user.name} ${user.lastName}`,
   });
 };
 
 const createNewHistory = (user) => {
   return new History({
     from: "Bank Simulator",
+    fromTheCardNumber: 1234567890123456,
     timestamp: moment().tz("America/Lima").format(),
-    for: `${user.name} ${user.lastName}`,
-    cardNumber: user.cardNumber,
+    forUser: `${user.name} ${user.lastName}`,
+    forTheCardNumber: user.cardNumber,
   });
 };
 

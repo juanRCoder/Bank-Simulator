@@ -40,7 +40,9 @@
   padding: 10px;
   position: relative;
   background-image: linear-gradient(to right, #6ce2f7, #3aaccb);
+  box-shadow: 5px 5px 10px 0px #55d1e7;
 }
+
 h1.font-inter {
   padding-left: 9px;
 }
@@ -72,8 +74,9 @@ h1.font-inter {
 }
 .floatCard {
   height: 353px;
-  background-image: linear-gradient(to right, #e1ebed, #ddf3f9);
+  background-image: linear-gradient(to right, #e4e5e5, #e4e5e5);
   border-radius: 10px;
+  box-shadow: 15px 15px 2px 0px #ccc;
 }
 .navbarDashboard {
   height: 100%;

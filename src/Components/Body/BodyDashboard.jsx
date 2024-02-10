@@ -61,7 +61,7 @@ const BodyDashboard = ({ name, monto, cardNumber }) => {
             </ul>
           </div>
           <div
-            style={{ backgroundColor: "white", width: "100%" }}
+            style={{ backgroundColor: "#ffffff", width: "100%" }}
             className="  ml-1 mt-1  rounded-md borde flex flex-col "
           >
             <div className="z-10 shadow-xl shadow-black bg-slate-100 w-11/12 h-96 mt-10 ml-10 rounded-lg containInfoCard">

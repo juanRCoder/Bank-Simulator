@@ -62,22 +62,20 @@ export const getMovementsForUser = async (req, res) => {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
 
-    const userMovements = await Movements.find({ id_user: findUser._id });
-    if (!userMovements) {
-      return res
-        .status(404)
-        .json({ error: "Usuario no vinculado con movimientos" });
-    }
+ const movements = await Movements.find();
 
-    // Devolver información de todos los movimientos del usuario
-    const movementsInfo = userMovements.map((movement) => ({
-      id_user: movement.id_user,
-      name: movement.for,
-      time: movement.timestamp,
-      deposited: movement.deposited,
-    }));
+// Mapear y renombrar los campos según tus necesidades
+const renamedMovements = movements.map(movement => ({
+  fromUserId: movement.id_fromUser,
+  fromUser: movement.fromUser,
+  timestamp: movement.timestamp,
+  forUserId: movement.id_forUser,
+  forUser: movement.forUser,
+  depositAmount: movement.deposited,
+  withdrawalAmount: movement.withdrawaled,
+}));
 
-    res.status(200).json({ userMovements: movementsInfo });
+res.status(200).json({ userMovements: renamedMovements });
   } catch (e) {
     console.log("Error en el controlador de Movimientos: " + e.message);
     res

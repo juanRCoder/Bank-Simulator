@@ -1,18 +1,17 @@
 .containerMovements {
   display: flex;
   width: 650px;
-  margin: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px auto;
   border-radius: 5px;
-  font-family: "Inter", sans-serif;
-  border: 1px solid #ddd;
+  font-family: Inter, sans-serif;
+  background-color: #eee;
 }
 .containerMovements:first-child {
   margin-top: 120px;
 }
 .MovementsDatos {
   width: 80%;
+  position: relative;
 }
 .MovementsName {
   font-size: 23px;
@@ -31,9 +30,12 @@
   align-items: center;
   justify-content: flex-end;
   font-weight: bolder;
-  color: #20ab18;
+  color: #0c889f;
   padding-right: 20px;
   font-size: 20px;
+  position: absolute;
+  right: -129px;
+  top: 22px;
 }
 
 .MovementsTitle {

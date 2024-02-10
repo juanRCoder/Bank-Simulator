@@ -3,16 +3,20 @@ import moment from "moment-timezone";
 
 const movementSchema = new mongoose.Schema(
   {
-    id_user: {
+    id_fromUser: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Users",
     },
-    from_user: String,
+    fromUser: String,
     timestamp: {
       type: Date,
       default: () => moment.tz("America/Lima").format(),
     },
-    for: String,
+    id_forUser: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Users",
+    },
+    forUser: String,
   },
   { strict: false, versionKey: false }
 );

@@ -60,7 +60,7 @@ function Movements() {
       <div>
         {movements &&
           movements.map((m, i) => {
-            const fechaHoraUTC = new Date(m.time);
+            const fechaHoraUTC = new Date(m.timestamp);
             const opciones = {
               day: "2-digit",
               month: "long",
@@ -74,18 +74,34 @@ function Movements() {
             );
 
             return (
+              // Deposito y Retiro desde el banco || Deposito y retiro de n usuario a otro n usuario
               <div key={i} className="containerMovements">
-                <div className="MovementsDatos">
-                  <p className="MovementsName">{m.name}</p>
-                  <p className="MovementsFecha">{fechaHoraPeru}</p>
-                </div>
-                {id === m.id_user && m.deposited ? (
-                  <p className="amount" style={{ color: "#e91e63" }}>
-                    - S/ {m.deposited}
-                  </p>
-                ) : m.deposited ? (
-                  <p className="amount">- S/ {m.deposited}</p>
-                ) : null}
+                {((m.fromUser === "Bank Simulator" && id === m.forUserId) ||
+                  id === m.forUserId) && (
+                  <div className="MovementsDatos">
+                    <p className="MovementsName">{m.fromUser}</p>
+                    <p className="MovementsFecha">{fechaHoraPeru}</p>
+                    {m.depositAmount !== undefined && (
+                      <p className="amount">S/ {m.depositAmount}</p>
+                    )}
+                    {m.withdrawalAmount ? (
+                      <p className="amount" style={{ color: "#e91e63" }}>
+                        - S/ {m.withdrawalAmount}
+                      </p>
+                    ) : null}
+                  </div>
+                )}
+                {id === m.fromUserId && m.depositAmount && (
+                  <div className="MovementsDatos">
+                    <p className="MovementsName">{m.forUser}</p>
+                    <p className="MovementsFecha">{fechaHoraPeru}</p>
+                    {m.depositAmount ? (
+                      <p className="amount" style={{ color: "#e91e63" }}>
+                        - S/ {m.depositAmount}
+                      </p>
+                    ) : null}
+                  </div>
+                )}
               </div>
             );
           })}
