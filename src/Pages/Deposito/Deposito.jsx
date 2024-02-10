@@ -91,16 +91,19 @@ const Deposito = () => {
               />
             </div>
           </div>
-          <div className=" mt-4 mb-8 text-xl  h-10 rounded-lg  ml-7 ">
+          <div className="  mb-8 text-xl  h-10 rounded-lg  ml-7 ">
+            <label  htmlFor="deposit">
+              Choose The Amount
+            </label>
             <select
-              className="text-base w-60 h-10 rounded-lg border border-slate-900"
+              className=" mt-2 text-base w-60 h-10 rounded-lg border border-slate-900"
               id="deposit"
               name="deposit"
               value={deposit}
               required
               onChange={handleChange}
             >
-              <option value="">Seleccione el monto</option>
+              <option value="">Amount </option>
               <option value={20}>S/.20.00</option>
               <option value={50}>S/.50.00</option>
               <option value={100}>S/.100.00</option>
@@ -112,7 +115,7 @@ const Deposito = () => {
             <button
               data-ripple-light="true"
               type="submit"
-              className="block w-full select-none rounded-lg bg-gradient-to-tr from-cyan-600 to-cyan-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className=" mt-10 block w-full select-none rounded-lg bg-gradient-to-tr from-cyan-600 to-cyan-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             >
               Deposit
             </button>
