@@ -66,11 +66,13 @@
   position: absolute;
   top: -47px;
   background: #0c889f;
-  padding: 10px 58px;
-  border-radius: 10px;
+  padding: 9px 59px;
+  font-size: 19px;
+  border-radius: 4px;
   color: #fff;
   transition: top 0.5s, opacity 1s ease-in-out;
   opacity: 1;
+  left: 510px;
 }
 
 .boxIfResult.transparent {

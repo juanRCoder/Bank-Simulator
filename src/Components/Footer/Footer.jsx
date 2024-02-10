@@ -12,12 +12,12 @@ const Footer = () => {
           <div>
             <h1 className="mt-10 ml-80  ">BANK SIMULATOR </h1>
             <p>
-              © 2024 Bank-Simulator | Todos los derechos reservados. Sede
-              Central, Centenario 156, Comas, Lima, Perú.{" "}
+              © 2024 Bank-Simulator | All rights reserved. Headquarters,
+              Centenario 156, Comas, Lima, Peru.{" "}
             </p>
             <p className="ml-40">
               {" "}
-              BANCO DE SIMULADOR DE HOLBERTOON S.A - RUC 121564599
+              HOLBERTOON S.A. SIMULATOR BENCH - RUC 121564599
             </p>
           </div>
         </div>

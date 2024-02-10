@@ -123,3 +123,12 @@ li > .button:active {
 .spanText2 {
   font-size: 13px;
 }
+.boxTitleBank {
+  margin: -18px 30px 40px 30px;
+  border-radius: 7px;
+  font-family: Inter;
+}
+.boxTitleBank > h3 {
+  font-size: 24px;
+  padding: 9px 0px;
+}

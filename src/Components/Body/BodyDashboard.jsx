@@ -92,7 +92,7 @@ const BodyDashboard = ({ name, monto, cardNumber }) => {
                       BANK SIMULATOR
                     </h1>
                     <h1 className="mt-4 font-inter text-white nameCard">
-                      Usuario
+                      User
                     </h1>
                     <h1 className="font-inter text-white">{name}</h1>
                     <h1 className="mt-4 font-inter nameCard text-white">
@@ -100,7 +100,7 @@ const BodyDashboard = ({ name, monto, cardNumber }) => {
                     </h1>
                     <h1 className="numberCard text-white">{cardNumber}</h1>
                     <h1 className="mt-4 font-inter nameCard text-white">
-                      Monto S/.
+                      Amount S/.
                     </h1>
                     <p className="Price text-white">{monto}</p>
                     <div className="">

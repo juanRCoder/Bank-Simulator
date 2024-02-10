@@ -35,7 +35,7 @@ function Movements() {
   return (
     <>
       <div className="MovementsTitle">
-        <h1>Movimientos</h1>
+        <h1>Movements</h1>
         <button className="button">
           <Link to={`/getDashboard/${id}`}>
             <IoMdReturnLeft

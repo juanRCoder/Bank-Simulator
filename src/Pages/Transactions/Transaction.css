@@ -49,8 +49,8 @@
   color: #fff;
   position: absolute;
   top: 16px;
-  left: 49px;
-  padding: 11px 58px;
+  left: 39px;
+  padding: 11px 96px;
   border-radius: 10px;
   font-size: 22px;
 }
@@ -60,7 +60,8 @@
   display: block;
   font-weight: 600;
   color: #777;
-  margin: 18px 0px 2px 25px;
+  margin: 18px 0px 2px 18px;
+  font-size: 15px;
 }
 .inputAccountNumber,
 .inputCantDeposit,
@@ -100,24 +101,21 @@
   transform: scale(1);
 }
 .accountNumber {
-  padding-top: 46px;
+  padding-top: 50px;
 }
-.boxIfResult,
+
 .boxElseResult {
   position: absolute;
-  top: -47px; /*18px*/
-  background: #84ff89;
-  padding: 10px 58px;
-  border-radius: 10px;
-  left: 40%;
-  color: #333;
+  top: -47px;
+  background: #d53126;
+  padding: 9px 86px;
+  font-size: 19px;
+  border-radius: 4px;
+  color: #fff;
   transition: top 0.5s, opacity 1s ease-in-out;
   opacity: 1;
+  left: 497px;
 }
-.boxElseResult {
-  background: #d53126;
-  color: #fff;
-}
-.boxIfResult.transparent {
+.boxElseResult.transparent {
   opacity: 0;
 }

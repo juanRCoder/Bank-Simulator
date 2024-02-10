@@ -4,7 +4,7 @@
   margin: 10px auto;
   border-radius: 5px;
   font-family: Inter, sans-serif;
-  background-color: #eee;
+  outline: 1px solid #ccc;
 }
 .containerMovements:first-child {
   margin-top: 120px;

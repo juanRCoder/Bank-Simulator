@@ -36,8 +36,8 @@ function ResultTransaction() {
           const fechaHoraPeru = fechaHoraUTC.toLocaleString("es-PE", opciones);
 
           setTransaction({ ...data, formattedTime: fechaHoraPeru });
-          setPosition(18);
-          setMensajeExito("¡Transacción exitosa!");
+          setPosition(30);
+          setMensajeExito("¡Successful Transaction!");
           // 3 segundos mostrar mensaje
           setTimeout(() => {
             setPosition(-47);
@@ -72,9 +72,9 @@ function ResultTransaction() {
             <div className="boxResultTransaction">
               <div className="boxResult" title="checke deposito" onClick={print}>
                 <div className="boxHeader">
-                  <h1>Depositado</h1>
+                  <h1>deposited</h1>
                   <FaCheckCircle className="iconCheck" />
-                  <p>Monto:</p>
+                  <p>Amount:</p>
                 </div>
                 <div className="boxAmount">
                   <span>S/</span>

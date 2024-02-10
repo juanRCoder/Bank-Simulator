@@ -4,7 +4,6 @@ import { IoMdReturnLeft } from "react-icons/io";
 import "./Transaction.css";
 
 const Transaction = () => {
-  const [mensajeExito, setMensajeExito] = useState(null);
   const [mensajeError, setMensajeError] = useState(null);
   const [position, setPosition] = useState(-47);
   const [opacityClass, setOpacityClass] = useState("");
@@ -54,8 +53,8 @@ const Transaction = () => {
         navigate(`/ResultTransaction/${idResult}`);
       } else {
         console.error("Error en la solicitud:", response.statusText);
-        setPosition(18);
-        setMensajeError("¡Transacción Rechazada!");
+        setPosition(30);
+        setMensajeError("Transaction Declined!");
         // 3 segundos mostrar mensaje
         setTimeout(() => {
           setPosition(-47);
@@ -72,21 +71,21 @@ const Transaction = () => {
   return (
     <>
       <div className="containerFormTransaction">
-        <h1 className="containerTitle">Transferencias de dinero</h1>
+        <h1 className="containerTitle">Money Transfers</h1>
         <form
           className="form"
           action={`/sendDepositUser/${id}`}
           onSubmit={handleSubmit}
         >
           <div className="boxForm">
-            <h1 className="message">Trasnferencias</h1>
+            <h1 className="message">Transfers</h1>
             <label htmlFor="accountNumber" className="accountNumber">
-              Numero de cuenta a transferir
+              Account number to be transferred
             </label>
             <input
               type="number"
               className="inputAccountNumber"
-              placeholder="ingrese su Numero de Cuenta"
+              placeholder="Enter the account number"
               required
               id="accountNumber"
               name="accountNumber"
@@ -94,7 +93,7 @@ const Transaction = () => {
               value={accountNumber}
             />
             <label htmlFor="cantDeposit" className="cantDeposit">
-              Monto a enviar
+              Amount to send
             </label>
             <select
               className="inputCantDeposit"
@@ -104,7 +103,7 @@ const Transaction = () => {
               value={cantDeposit}
               required
             >
-              <option value="">Seleccione el monto</option>
+              <option value="">Select Amount</option>
               <option value={20}>S/.20.00</option>
               <option value={50}>S/.50.00</option>
               <option value={100}>S/.100.00</option>
@@ -113,7 +112,7 @@ const Transaction = () => {
 
             <label htmlFor="token" className="token">
               {" "}
-              ingrese su token propio
+              Enter your own token
             </label>
             <input
               className="inputToken"
@@ -125,20 +124,14 @@ const Transaction = () => {
               onChange={handleChange}
               value={token}
             />
-            <button className="btnSubmit">Realizar Transaccion</button>
+            <button className="btnSubmit">Make Transaction</button>
           </div>
         </form>
-        <div
-          className={`boxIfResult ${opacityClass}`}
-          style={{ top: `${position}px` }}
-        >
-          {mensajeExito}
-        </div>
         <div
           className={`boxElseResult ${opacityClass}`}
           style={{ top: `${position}px` }}
         >
-          {mensajeError}
+          {mensajeError}Transaction Declined!
         </div>
         <button className="button">
           <Link to={`/getDashboard/${id}`}>
