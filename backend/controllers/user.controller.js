@@ -50,6 +50,40 @@ export const getDashboard = async (req, res) => {
   }
 };
 
+// export const getMovementsForUser = async (req, res) => {
+//   try {
+//     const userId = req.params.id;
+//     if (!userId) {
+//       return res.status(400).json({ error: "Datos de entrada incompletos" });
+//     }
+
+//     const findUser = await Users.findById(userId);
+//     if (!findUser) {
+//       return res.status(404).json({ error: "Usuario no encontrado" });
+//     }
+
+//  const movements = await Movements.find();
+
+// // Mapear y renombrar los campos según tus necesidades
+// const renamedMovements = movements.map(movement => ({
+//   fromUserId: movement.id_fromUser,
+//   fromUser: movement.fromUser,
+//   timestamp: movement.timestamp,
+//   forUserId: movement.id_forUser,
+//   forUser: movement.forUser,
+//   depositAmount: movement.deposited,
+//   withdrawalAmount: movement.withdrawaled,
+// }));
+
+// res.status(200).json({ userMovements: renamedMovements });
+//   } catch (e) {
+//     console.log("Error en el controlador de Movimientos: " + e.message);
+//     res
+//       .status(500)
+//       .json({ e: "Error al procesar los datos del movimiento por usuario" });
+//   }
+// };
+
 export const getMovementsForUser = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -62,20 +96,33 @@ export const getMovementsForUser = async (req, res) => {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
 
- const movements = await Movements.find();
+    const movements = await Movements.find({
+      $or: [
+        {
+          id_fromUser: findUser._id,
+          fromUser: "Bank Simulator",
+        },
+        {
+          id_forUser: findUser._id,
+        },
+        {
+          id_fromUser: findUser._id,
+        },
+      ],
+    });
 
-// Mapear y renombrar los campos según tus necesidades
-const renamedMovements = movements.map(movement => ({
-  fromUserId: movement.id_fromUser,
-  fromUser: movement.fromUser,
-  timestamp: movement.timestamp,
-  forUserId: movement.id_forUser,
-  forUser: movement.forUser,
-  depositAmount: movement.deposited,
-  withdrawalAmount: movement.withdrawaled,
-}));
+    // Mapear y renombrar los campos según tus necesidades
+    const renamedMovements = movements.map((movement) => ({
+      fromUserId: movement.id_fromUser,
+      fromUser: movement.fromUser,
+      timestamp: movement.timestamp,
+      forUserId: movement.id_forUser,
+      forUser: movement.forUser,
+      depositAmount: movement.deposited,
+      withdrawalAmount: movement.withdrawaled,
+    }));
 
-res.status(200).json({ userMovements: renamedMovements });
+    res.status(200).json({ userMovements: renamedMovements });
   } catch (e) {
     console.log("Error en el controlador de Movimientos: " + e.message);
     res
