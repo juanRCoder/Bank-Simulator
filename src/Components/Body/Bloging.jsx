@@ -13,7 +13,9 @@ const Blogin = () => {
   return (
     <>
       <div>
+        <div className="-mt-5"> 
        <Carousel/>
+       </div>
         <div className="flex mt-10 justify-center">
           <ul className="flex ml-20 text-blue-900">
             <li className="mr-20">

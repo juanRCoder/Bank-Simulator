@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     type: Number,
     unique: true,
   },
-  amount: Number,
+  amount: Number, 
   accountNumber: {
     type: Number,
     unique: true,

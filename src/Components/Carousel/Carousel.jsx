@@ -37,22 +37,22 @@ const Carousel = () => {
 }, [current]);
   return (
     <>
-      <div className='max-w-[1400px] h-[600px] w-full m-auto py-16 px-4 relative '>
+      <div className='max-w-[1200px] h-[600px] w-full m-auto py-16 px-4 relative '>
         <div
           style={{ backgroundImage: `url(${slides[current].url})` }}
           className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
         ></div>
         <div
           onClick={nextOne}
-          className='absolute top-1/2 -translate-y-1/2 left-5 text-2xl rounded-full p-2 bg-black text-white cursor-pointer'
+          className='absolute top-1/2 -translate-y-1/2 left-5 text-2xl text-white cursor-pointer'
         >
-          <BsChevronCompactLeft size={30} />
+          <BsChevronCompactLeft size={40} />
         </div>
         <div
           onClick={beforeOne}
-          className='absolute top-1/2 -translate-y-1/2 right-5 text-2xl rounded-full p-2 bg-black text-white cursor-pointer'
+          className='absolute top-1/2 -translate-y-1/2 right-5 text-xl  text-white  cursor-pointer'
         >
-          <BsChevronCompactRight size={30} />
+          <BsChevronCompactRight size={40} />
         </div>
       </div>
     </>
