@@ -52,17 +52,21 @@ const Transaction = () => {
         const idResult = await response.json();
         navigate(`/ResultTransaction/${idResult}`);
       } else {
-        console.error("Error en la solicitud:", response.statusText);
+        const errorMessage = await response.json();
+
         setPosition(30);
-        setMensajeError("Transaction Declined!");
-        // 3 segundos mostrar mensaje
+        setMensajeError(
+          errorMessage.error.includes("Insufficient balance") ? errorMessage.error : "Transaction Declined!"
+        );
+
+        // Mostrar mensaje por 3 segundos
         setTimeout(() => {
           setPosition(-47);
+          // Desaparecer último segundo
+          setTimeout(() => {
+            setOpacityClass("transparent");
+          }, 2000);
         }, 3000);
-        // ultimo segundo desaparecer
-        setTimeout(() => {
-          setOpacityClass("transparent");
-        }, 2000);
       }
     } catch (error) {
       console.error("Error al procesar la solicitud:", error);
@@ -131,7 +135,7 @@ const Transaction = () => {
           className={`boxElseResult ${opacityClass}`}
           style={{ top: `${position}px` }}
         >
-          {mensajeError}Transaction Declined!
+          {mensajeError}
         </div>
         <button className="button">
           <Link to={`/getDashboard/${id}`}>

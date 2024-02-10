@@ -108,11 +108,15 @@
   position: absolute;
   top: -47px;
   background: #d53126;
-  padding: 9px 86px;
+  padding: 9px 0px;
+  width: 366px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 19px;
   border-radius: 4px;
   color: #fff;
-  transition: top 0.5s, opacity 1s ease-in-out;
+  transition: top .5s,opacity 1s ease-in-out;
   opacity: 1;
   left: 497px;
 }

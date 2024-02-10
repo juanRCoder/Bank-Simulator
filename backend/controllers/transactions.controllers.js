@@ -50,7 +50,7 @@ export const postDepositUser = async (req, res) => {
     if (cantDeposit > imUser.amount) {
       return res
         .status(400)
-        .json({ error: `Saldo insuficiente: ${imUser.amount}` });
+        .json({ error: `Insufficient balance: S/ ${imUser.amount}`});
     }
 
     const session = await Users.startSession();
