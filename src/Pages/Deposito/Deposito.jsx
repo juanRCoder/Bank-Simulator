@@ -40,8 +40,6 @@ const Deposito = () => {
 
       if (response.ok) {
         const data = await response.json();
-
-        console.log(data.name, data.lastName, data.deposit, data.date);
       } else {
         console.error("Error en la solicitud:", response.statusText);
       }
@@ -51,8 +49,7 @@ const Deposito = () => {
   };
 
   return (
-    <> 
-    
+    <>
       <div className="  relative flex w-96 flex-col rounded-xl bg-slate-300 bg-clip-border text-gray-700 shadow-md">
         <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-gradient-to-tr from-cyan-600 to-cyan-400 bg-clip-border text-white shadow-lg shadow-cyan-500/40">
           <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
@@ -120,21 +117,20 @@ const Deposito = () => {
               Deposit
             </button>
             <div>
-            <p className=" text-center mt-6 flex justify-center font-sans text-sm font-light leading-normal text-inherit antialiased">
-                 Don't have enought money,
-              <br />
-              we lend you money with high interest <br />
+              <p className=" text-center mt-6 flex justify-center font-sans text-sm font-light leading-normal text-inherit antialiased">
+                Don't have enought money,
+                <br />
+                we lend you money with high interest <br />
               </p>
-              </div>
-              <div className="flex justify-center text-center ">
+            </div>
+            <div className="flex justify-center text-center ">
               <a
                 className=" mt-4 font-sans text-sm font-bold leading-normal text-cyan-500 "
                 href="#loans"
               >
                 LOANS
               </a>
-              </div>
-            
+            </div>
           </div>
         </form>
       </div>
