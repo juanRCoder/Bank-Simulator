@@ -98,7 +98,7 @@ function ResultTransaction() {
           {mensajeExito}
         </div>
         <button className="button">
-          <Link to={`/getDashboard/${transaction.id_user}`}>
+          <Link to={`/getDasboard/${transaction.id_user}`}>
             <IoMdReturnLeft
               title="Regresar"
               style={{ display: "inline-block" }}
@@ -108,12 +108,12 @@ function ResultTransaction() {
         </button>
 
         <button className="button2">
-          <Link to={`/getDashboard/${transaction.id_user}`}>
+          <Link to={`/Transactions/${transaction.id_user}`}>
             <IoMdReturnLeft
               title="Regresar"
               style={{ display: "inline-block" }}
             />
-            <span className="spanText">Transferencia</span>
+            <span className="spanText">transfer</span>
           </Link>
         </button>
       </div>

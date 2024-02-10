@@ -47,6 +47,8 @@
   width: 100%;
   top: 0;
   background-color: #fff;
+  z-index: 20;
+  border-bottom: 1px solid #eee;
 }
 .MovementsTitle > h1 {
   font-weight: 700;
