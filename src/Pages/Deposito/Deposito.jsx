@@ -75,7 +75,7 @@ const Deposito = () => {
       <div className="  relative flex w-96 flex-col rounded-xl bg-slate-300 bg-clip-border text-gray-700 shadow-md">
         <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-gradient-to-tr from-cyan-600 to-cyan-400 bg-clip-border text-white shadow-lg shadow-cyan-500/40">
           <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
-            Deposit money
+            Deposit Money
           </h3>
         </div>
         <form action="/sendDeposit" onSubmit={handleSubmit} className="">
@@ -116,7 +116,7 @@ const Deposito = () => {
           <div className="  mb-8 text-xl  h-10 rounded-lg  ml-7 ">
             <label htmlFor="deposit">Choose The Amount</label>
             <select
-              className=" mt-2 text-base w-60 h-10 rounded-lg border border-slate-900"
+              className=" mt-2 text-base w-11/12 h-10 rounded-lg "
               id="deposit"
               name="deposit"
               value={deposit}
@@ -131,7 +131,7 @@ const Deposito = () => {
             </select>
           </div>
 
-          <div className="p-6 pt-0">
+          <div className="w-80 ml-8 pt-1 ">
             <button
               data-ripple-light="true"
               type="submit"
