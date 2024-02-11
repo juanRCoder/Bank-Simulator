@@ -135,9 +135,10 @@ export const postRetiro = async (req, res) => {
 
       //enviar al frontend los datos necesarios para verificar el retiro.
       res.status(201).json({
-        name: `${findUser.name} ${findUser.lastName}`,
-        withdrawal: newMovement.amount,
-        date: newMovement.timestamp,
+        fromUser: `${newMovement.fromUser}`,
+        forUser: `${newMovement.forUser}`,
+        withdrawal: withdrawal,
+        time: newMovement.timestamp,
       });
     } catch (error) {
       await session.abortTransaction();
