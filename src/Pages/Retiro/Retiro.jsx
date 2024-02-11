@@ -1,6 +1,7 @@
 import React from "react";
-import logoBank from '../../images/logo.png'
+import logoBank from "../../images/logo.png";
 import { useState } from "react";
+import "./Retiro.css";
 
 const Retiro = () => {
   const [withdrawal, setWithdrawal] = useState(0);
@@ -9,10 +10,8 @@ const Retiro = () => {
   const [dni, setDni] = useState("");
 
   const [databank, setDatabank] = useState({});
-  const [position, setPosition] = useState(-625);
-  const [modalVisible, setModalVisible] = useState(false);
+  const [position, setPosition] = useState(-650);
 
-  
   const handleChange = (event) => {
     const { name, value } = event.target;
     switch (name) {
@@ -65,9 +64,6 @@ const Retiro = () => {
 
         setDatabank({ ...data, formattedTime: fechaHoraPeru });
         setPosition(0);
-        setModalVisible(true);
-        console.log("Modal Visible:", modalVisible)
-       
       } else {
         console.error("Error en la solicitud:", response.statusText);
       }
@@ -75,17 +71,9 @@ const Retiro = () => {
       console.error("Error al procesar la solicitud:", error);
     }
   };
- 
 
   const print = () => {
     window.print();
-  };
-
-  const closeModal = () => {
-    setModalVisible(false);
-    setTimeout(() => {
-      setPosition(-625);
-    }, 500); 
   };
 
   return (
@@ -132,12 +120,12 @@ const Retiro = () => {
             </div>
           </div>
           <div className=" mb-14 text-xl  h-10 rounded-lg  ml-7  ">
-          <label
-                htmlFor="cardNumber"
-                className="text-xl -mt-1 before:content[' '] after:content[' '] pointer-events-none absolute mt-1 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-cyan-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-cyan-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-cyan-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500"
-              >
-                Choose The Amount
-              </label>
+            <label
+              htmlFor="cardNumber"
+              className="text-xl -mt-1 before:content[' '] after:content[' '] pointer-events-none absolute mt-1 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-cyan-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-cyan-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-cyan-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500"
+            >
+              Choose The Amount
+            </label>
             <select
               className="text-base w-11/12 h-11 rounded-md mt-7"
               id="withdrawal"
@@ -146,7 +134,7 @@ const Retiro = () => {
               required
               onChange={handleChange}
             >
-              <option  value=""> Amount</option>
+              <option value=""> Amount</option>
               <option value={20}>S/.20.00</option>
               <option value={50}>S/.50.00</option>
               <option value={100}>S/.100.00</option>
@@ -196,29 +184,33 @@ const Retiro = () => {
           </div>
         </form>
       </div>
-      {modalVisible && (
-      <div className={`boxModal absolute top-${position} left-0 border-2 border-gray-300 border-solid rounded-md bg-gray-200 h-full w-full p-4 transition-top z-50`}>
-    <div className="p-4" onClick={(e) => e.stopPropagation()}>
-      <h2 className="text-center mt-5 mb-8 text-3xl font-bold text-cyan-500">{databank.fromUser}</h2>
-      <p className="text-cyan-500 text-xl font-bold mb-2">Withdrawal:</p>
-      <div className="flex items-center mb-4">
-        <span className="text-cyan-500 text-xl font-bold mr-2">S/</span>
-        <p className="text-cyan-500 text-xl font-bold">{databank.withdrawal}</p>
-      </div>
-      <div className="mb-4">
-        <p className="text-cyan-500 text-xl font-bold">
-          <span>For:</span> {databank.forUser}
-        </p>
-        <p className="text-cyan-500 text-xl font-bold">
-          <span>Date: </span> {databank.formattedTime}
-        </p>
-      </div>
-      <div >
-        <img src={logoBank} alt="logoBank" title="logoBank" className="h-full w-full object-contain" />
-      </div>
-    </div>
-  </div>
-)}
+      {databank && (
+        <div
+          className="boxModal"
+          onClick={print}
+          style={{ top: `${position}px` }}
+        >
+          <h2>{databank.fromUser}</h2>
+          <p className="Depositado">Withdrawal:</p>
+          <div className="boxMonto">
+            <span>S/</span>
+            <p className="Amount">{databank.withdrawal}</p>
+          </div>
+          <div className="boxDate">
+            <p className="dataForUser">
+              <span>For:</span>
+              {databank.forUser}
+            </p>
+            <p className="dataFecha">
+              <span>Date: </span>
+              {databank.formattedTime}
+            </p>
+          </div>
+          <div className="boxLogo">
+            <img src={logoBank} alt="logoBank" title="logoBank" />
+          </div>
+        </div>
+      )}
     </>
   );
 };
