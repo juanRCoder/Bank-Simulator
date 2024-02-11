@@ -1,5 +1,5 @@
 import React from "react";
-
+import logoBank from '../../images/logo.png'
 import { useState } from "react";
 
 const Retiro = () => {
@@ -7,8 +7,12 @@ const Retiro = () => {
   const [keyFour, setKeyFour] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [dni, setDni] = useState("");
-  const [estadoRetiro, setEstadoRetiro] = useState(null);
 
+  const [databank, setDatabank] = useState({});
+  const [position, setPosition] = useState(-625);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     switch (name) {
@@ -46,22 +50,44 @@ const Retiro = () => {
 
       if (response.ok) {
         const data = await response.json();
-        setEstadoRetiro("exitoso"); //mensaje exitoso
-        setTimeout(() => {
-          setEstadoRetiro(null);
-        }, 4000); //duracion 4 segundos
+        console.log(data);
+        const fechaHoraUTC = new Date(data.time);
+        const opciones = {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          timeZone: "America/Lima",
+        };
+        const fechaHoraPeru = fechaHoraUTC.toLocaleString("es-PE", opciones);
+
+        setDatabank({ ...data, formattedTime: fechaHoraPeru });
+        setPosition(0);
+        setModalVisible(true);
+        console.log("Modal Visible:", modalVisible)
+       
       } else {
         console.error("Error en la solicitud:", response.statusText);
-        setEstadoRetiro("fallido"); //mensaje de error
-        setTimeout(() => {
-          setEstadoRetiro(null);
-        }, 4000); //duracion 4 segundos
       }
     } catch (error) {
       console.error("Error al procesar la solicitud:", error);
     }
   };
-  console.log("Estado de retiro:", estadoRetiro);
+ 
+
+  const print = () => {
+    window.print();
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+    setTimeout(() => {
+      setPosition(-625);
+    }, 500); 
+  };
+
   return (
     <>
       <div className="relative flex w-96 flex-col rounded-xl bg-slate-300 bg-clip-border text-gray-700 shadow-md">
@@ -170,6 +196,29 @@ const Retiro = () => {
           </div>
         </form>
       </div>
+      {modalVisible && (
+      <div className={`boxModal absolute top-${position} left-0 border-2 border-gray-300 border-solid rounded-md bg-gray-200 h-full w-full p-4 transition-top z-50`}>
+    <div className="p-4" onClick={(e) => e.stopPropagation()}>
+      <h2 className="text-center mt-5 mb-8 text-3xl font-bold text-cyan-500">{databank.fromUser}</h2>
+      <p className="text-cyan-500 text-xl font-bold mb-2">Withdrawal:</p>
+      <div className="flex items-center mb-4">
+        <span className="text-cyan-500 text-xl font-bold mr-2">S/</span>
+        <p className="text-cyan-500 text-xl font-bold">{databank.withdrawal}</p>
+      </div>
+      <div className="mb-4">
+        <p className="text-cyan-500 text-xl font-bold">
+          <span>For:</span> {databank.forUser}
+        </p>
+        <p className="text-cyan-500 text-xl font-bold">
+          <span>Date: </span> {databank.formattedTime}
+        </p>
+      </div>
+      <div >
+        <img src={logoBank} alt="logoBank" title="logoBank" className="h-full w-full object-contain" />
+      </div>
+    </div>
+  </div>
+)}
     </>
   );
 };
