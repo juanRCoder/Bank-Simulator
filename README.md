@@ -1,4 +1,4 @@
-<img src="./src/images/showBank.png" alt="Logo" height="200" width="100vw">
+<img src="./src/images/showBank.png" alt="Logo" height="200" width="100%">
 <p align='justify'>
 <h1 style="display: inline-block;">BANK SIMULATOR</h1>
 Es un aplicativo web el cual como lo dice el titulo simula las diferentes transacciones que uno puede realizarlo de manera fisica en un banco. Aparte puedes loguearte con tus datos bancarios para que puedas consultar su informacion bancario como el estado de cuenta, lista de movimientos y realizar transferencias de dinero a otras personas.
