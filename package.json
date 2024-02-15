@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "http://localhost:3006",
   "scripts": {
     "start": "nodemon backend/server.js",
     "deploy": "gh-pages -d dist",

@@ -5,7 +5,7 @@ import tailwindcss from "tailwindcss";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/Bank-Simulator/",
+  base: "/Bank-Simulator",
   css: {
     postcss: {
       plugins: [tailwindcss],

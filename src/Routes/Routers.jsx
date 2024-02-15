@@ -18,6 +18,7 @@ const Routers = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/Bank-Simulator" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/getDashboard/:id" element={<Dashboard />} />
           <Route path="/Deposito" element={<Deposito />} />
